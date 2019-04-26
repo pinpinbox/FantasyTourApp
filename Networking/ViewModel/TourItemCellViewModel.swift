@@ -25,13 +25,14 @@ class TourItemCellViewModel {
     let isFavored = BehaviorRelay<Bool>(value: false)
     let tourDatesVisible = BehaviorRelay<Bool>(value: true)
     
+    
     var phoneBtnPressedBlock : (() -> Void)?
     var favRemovedBlock: (() -> Void)?
-    var tourDatesBtnBlock: (() -> Void)?
+    var tourDatesBtnBlock: ((_ list : Array<Date>) -> Void)?
     
     var tid = String()
     var guidestr = String()
-    
+    var dates = Array<Date>()
     
     func runPhoneBtnPressedBlock() {
         if let phoneBtnPressedBlock = phoneBtnPressedBlock {
@@ -71,7 +72,7 @@ class TourItemCellViewModel {
         self.regionText.accept(tour.tour.area)
         self.isFavored.accept(FavListManager.isInFavList(tour.tour.tour_id))
         self.tourDatesVisible.accept((tour.tour.dateList.count > 0))
-        
+        self.dates.append(contentsOf: tour.tour.dateList)
         if tour.tour.hide_price {
             self.priceText.accept("\(tour.tour.days)天 / \(tour.tour.hide_price_title)")
         } else {

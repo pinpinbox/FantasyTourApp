@@ -84,6 +84,16 @@ class MyFavListViewController: UIViewController, UICollectionViewDelegate, UICol
                             self.viewModel.removeFavItemAt(index)
                         }
                     }
+                    cell.viewModel.tourDatesBtnBlock = {(dates) in
+                        DispatchQueue.main.async {
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            
+                            if let fv  = storyboard.instantiateViewController(withIdentifier: "TourDatesCalendarViewController") as? TourDatesCalendarViewController {
+                                fv.dates = dates
+                                self.present(fv, animated: true, completion: nil)
+                            }
+                        }
+                    }
                 }.disposed(by: disposeBag)
             
             viewModel.detailVC.subscribe(onNext: { vc in
@@ -123,5 +133,8 @@ class MyFavListViewController: UIViewController, UICollectionViewDelegate, UICol
         return 10.0
     }
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            print(segue)
+        
+    }
 }

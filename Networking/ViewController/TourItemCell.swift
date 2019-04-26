@@ -181,7 +181,10 @@ class TourItemCell: UICollectionViewCell {
                 .disposed(by: disposeBag)
             
             tourCalendar.rx.tap.asObservable().bind {
-                self.viewModel.runPhoneBtnPressedBlock()
+                if let block = self.viewModel.tourDatesBtnBlock {
+                    
+                    block(self.viewModel.dates)
+                }
                 }.disposed(by: disposeBag)
         }
         if let phone  = self.phone {

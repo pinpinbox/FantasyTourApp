@@ -46,11 +46,17 @@
 		D28D10851DEC95B70070B48A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D28D10831DEC95B70070B48A /* Main.storyboard */; };
 		D28D10871DEC95B70070B48A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D28D10861DEC95B70070B48A /* Assets.xcassets */; };
 		D28D108A1DEC95B70070B48A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D28D10881DEC95B70070B48A /* LaunchScreen.storyboard */; };
+		F05B7A032272F89A0002F359 /* CalendarView+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05B79FA2272F8990002F359 /* CalendarView+DataSource.swift */; };
+		F05B7A042272F89A0002F359 /* CalendarView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05B79FB2272F8990002F359 /* CalendarView+Extensions.swift */; };
+		F05B7A062272F89A0002F359 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05B79FD2272F8990002F359 /* CalendarView.swift */; };
+		F05B7A072272F89A0002F359 /* CalendarView+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05B79FE2272F8990002F359 /* CalendarView+Style.swift */; };
+		F05B7A082272F89A0002F359 /* CalendarDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05B79FF2272F8990002F359 /* CalendarDayCell.swift */; };
+		F05B7A092272F89A0002F359 /* CalendarFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05B7A002272F8990002F359 /* CalendarFlowLayout.swift */; };
+		F05B7A0A2272F89A0002F359 /* CalendarView+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05B7A012272F89A0002F359 /* CalendarView+Delegate.swift */; };
+		F05B7A0B2272F89A0002F359 /* CalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05B7A022272F89A0002F359 /* CalendarHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CB0039A1225475430012234F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		CB12FF6A22642F75008CC3E2 /* SideSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideSettingViewController.swift; sourceTree = "<group>"; };
 		CB17DFDC22696D66008E1287 /* FlightInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightInfoViewController.swift; sourceTree = "<group>"; };
 		CB17DFDE22698473008E1287 /* BaseVCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVCViewModel.swift; sourceTree = "<group>"; };
 		CB17DFE02269A01A008E1287 /* FlightInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightInfoViewModel.swift; sourceTree = "<group>"; };
@@ -67,7 +73,6 @@
 		CB6A5FED226712C500066477 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		CB6A5FEE226712C500066477 /* SideSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideSettingViewController.swift; sourceTree = "<group>"; };
 		CB6A5FF22267192F00066477 /* PhoneListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneListViewController.swift; sourceTree = "<group>"; };
-		CB84583E224DC99200F8FC05 /* Note.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Note.md; sourceTree = "<group>"; };
 		CB8B07102271628F00D6941C /* FavListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavListManager.swift; sourceTree = "<group>"; };
 		CB8B0713227162DD00D6941C /* TourListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourListModel.swift; sourceTree = "<group>"; };
 		CBB4483E2271BAC300D43D28 /* MyFavListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavListViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +99,14 @@
 		D28D10861DEC95B70070B48A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D28D10891DEC95B70070B48A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D28D108B1DEC95B70070B48A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F05B79FA2272F8990002F359 /* CalendarView+DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CalendarView+DataSource.swift"; path = "Networking/CalendarView/CalendarView+DataSource.swift"; sourceTree = SOURCE_ROOT; };
+		F05B79FB2272F8990002F359 /* CalendarView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CalendarView+Extensions.swift"; path = "Networking/CalendarView/CalendarView+Extensions.swift"; sourceTree = SOURCE_ROOT; };
+		F05B79FD2272F8990002F359 /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalendarView.swift; path = Networking/CalendarView/CalendarView.swift; sourceTree = SOURCE_ROOT; };
+		F05B79FE2272F8990002F359 /* CalendarView+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CalendarView+Style.swift"; path = "Networking/CalendarView/CalendarView+Style.swift"; sourceTree = SOURCE_ROOT; };
+		F05B79FF2272F8990002F359 /* CalendarDayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalendarDayCell.swift; path = Networking/CalendarView/CalendarDayCell.swift; sourceTree = SOURCE_ROOT; };
+		F05B7A002272F8990002F359 /* CalendarFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalendarFlowLayout.swift; path = Networking/CalendarView/CalendarFlowLayout.swift; sourceTree = SOURCE_ROOT; };
+		F05B7A012272F89A0002F359 /* CalendarView+Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CalendarView+Delegate.swift"; path = "Networking/CalendarView/CalendarView+Delegate.swift"; sourceTree = SOURCE_ROOT; };
+		F05B7A022272F89A0002F359 /* CalendarHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalendarHeaderView.swift; path = Networking/CalendarView/CalendarHeaderView.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,15 +142,6 @@
 			);
 			name = TabPageViewController;
 			path = Networking/TabPageViewController;
-			sourceTree = "<group>";
-		};
-		CB6A5FE82267125C00066477 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				CB12FF6A22642F75008CC3E2 /* SideSettingViewController.swift */,
-				CB0039A1225475430012234F /* BaseViewController.swift */,
-			);
-			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		CB8B070D2271627A00D6941C /* Model */ = {
@@ -199,12 +203,11 @@
 		D28D10731DEC95B70070B48A = {
 			isa = PBXGroup;
 			children = (
+				F05B79F92272F84A0002F359 /* CalendarView */,
 				CB280E3F22657F3A009E765B /* TabPageViewController */,
-				CB84583E224DC99200F8FC05 /* Note.md */,
 				D28D107E1DEC95B70070B48A /* Networking */,
 				D28D107D1DEC95B70070B48A /* Products */,
 				8719747F3FD93E510438CAA8 /* Frameworks */,
-				CB6A5FE82267125C00066477 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -230,6 +233,21 @@
 				D28D108B1DEC95B70070B48A /* Info.plist */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		F05B79F92272F84A0002F359 /* CalendarView */ = {
+			isa = PBXGroup;
+			children = (
+				F05B79FF2272F8990002F359 /* CalendarDayCell.swift */,
+				F05B7A002272F8990002F359 /* CalendarFlowLayout.swift */,
+				F05B7A022272F89A0002F359 /* CalendarHeaderView.swift */,
+				F05B79FD2272F8990002F359 /* CalendarView.swift */,
+				F05B79FA2272F8990002F359 /* CalendarView+DataSource.swift */,
+				F05B7A012272F89A0002F359 /* CalendarView+Delegate.swift */,
+				F05B79FB2272F8990002F359 /* CalendarView+Extensions.swift */,
+				F05B79FE2272F8990002F359 /* CalendarView+Style.swift */,
+			);
+			path = CalendarView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,9 +282,8 @@
 				TargetAttributes = {
 					D28D107B1DEC95B70070B48A = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 392DCPHLMM;
 						LastSwiftMigration = 1020;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -311,6 +328,7 @@
 			files = (
 				CBB4483D227163A700D43D28 /* TourListModel.swift in Sources */,
 				CBDCDF27226EB4A600D7D39E /* PriceViewController.swift in Sources */,
+				F05B7A042272F89A0002F359 /* CalendarView+Extensions.swift in Sources */,
 				CBE9AC3222671095003B898E /* TourDetailViewModel.swift in Sources */,
 				CBD9997D22670EE900B0DCB7 /* TourDetailPageViewController.swift in Sources */,
 				CB8B07112271628F00D6941C /* FavListManager.swift in Sources */,
@@ -321,7 +339,9 @@
 				CB280E4C22657F3B009E765B /* TabPageOption.swift in Sources */,
 				CB6A5FEF226712C500066477 /* BaseViewController.swift in Sources */,
 				CBE9AC3122671095003B898E /* TourListViewModel.swift in Sources */,
+				F05B7A062272F89A0002F359 /* CalendarView.swift in Sources */,
 				CBB4483F2271BAC300D43D28 /* MyFavListViewController.swift in Sources */,
+				F05B7A0B2272F89A0002F359 /* CalendarHeaderView.swift in Sources */,
 				CB17DFDF22698473008E1287 /* BaseVCViewModel.swift in Sources */,
 				CBB448412271BCE100D43D28 /* FavListViewModel.swift in Sources */,
 				CB17DFDD22696D66008E1287 /* FlightInfoViewController.swift in Sources */,
@@ -330,6 +350,8 @@
 				CBB6854F226D6D2400A342DC /* ItineraryViewViewController.swift in Sources */,
 				CBE5997B2272B5A000AA5F96 /* TourItemCellViewModel.swift in Sources */,
 				CBE599812272C34A00AA5F96 /* TourDatesCalendarViewController.swift in Sources */,
+				F05B7A092272F89A0002F359 /* CalendarFlowLayout.swift in Sources */,
+				F05B7A072272F89A0002F359 /* CalendarView+Style.swift in Sources */,
 				CBDC430422535771006E00B0 /* Extensions.swift in Sources */,
 				CB17DFE12269A01A008E1287 /* FlightInfoViewModel.swift in Sources */,
 				CBE5997F2272C2F600AA5F96 /* TourDatesCalendarViewModel.swift in Sources */,
@@ -337,6 +359,9 @@
 				D28D10801DEC95B70070B48A /* AppDelegate.swift in Sources */,
 				CBDC430222535744006E00B0 /* Enums.swift in Sources */,
 				CBE5997D2272BA0500AA5F96 /* TourItemCell.swift in Sources */,
+				F05B7A0A2272F89A0002F359 /* CalendarView+Delegate.swift in Sources */,
+				F05B7A082272F89A0002F359 /* CalendarDayCell.swift in Sources */,
+				F05B7A032272F89A0002F359 /* CalendarView+DataSource.swift in Sources */,
 				CB6A5FF32267192F00066477 /* PhoneListViewController.swift in Sources */,
 				CB1BBEFE22701BE500A9A3CB /* TripNoteViewModel.swift in Sources */,
 				CB280E4B22657F3B009E765B /* TabPageViewController.swift in Sources */,
@@ -485,8 +510,8 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 392DCPHLMM;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Networking/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.NewSample.FantasyTourApp;
@@ -502,8 +527,8 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 392DCPHLMM;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Networking/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.NewSample.FantasyTourApp;

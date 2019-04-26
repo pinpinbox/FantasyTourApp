@@ -67,6 +67,16 @@ class TourListViewController: UIViewController, UICollectionViewDelegate, UIColl
                             self.present(p, animated: true, completion: nil)
                         }
                     }
+                    cell.viewModel.tourDatesBtnBlock = {(dates) in
+                        DispatchQueue.main.async {
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            
+                            if let fv  = storyboard.instantiateViewController(withIdentifier: "TourDatesCalendarViewController") as? TourDatesCalendarViewController {
+                                fv.dates = dates
+                                self.present(fv, animated: true, completion: nil)
+                            }
+                        }
+                    }
                 }.disposed(by: disposeBag)
             
             viewModel.detailVC.subscribe(onNext: { vc in
