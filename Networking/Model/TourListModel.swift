@@ -14,11 +14,11 @@ struct getlatestlistItem : Decodable {
     let data : Array<Tour>
 }
 
-struct Tour : Decodable {
+struct Tour : Codable {
     let tour : Guide
 }
 
-struct Guide : Decodable {
+struct Guide : Codable {
     let area : String
     let cover : URL
     let date_go : String
@@ -48,6 +48,7 @@ struct Guide : Decodable {
     func debugStr() -> String {
         return "...DEBUG..."
     }
+    
 }
 
 //MARK: Flight

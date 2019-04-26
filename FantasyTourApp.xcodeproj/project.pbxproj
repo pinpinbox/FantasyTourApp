@@ -22,6 +22,10 @@
 		CB6A5FEF226712C500066477 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A5FED226712C500066477 /* BaseViewController.swift */; };
 		CB6A5FF0226712C500066477 /* SideSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A5FEE226712C500066477 /* SideSettingViewController.swift */; };
 		CB6A5FF32267192F00066477 /* PhoneListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A5FF22267192F00066477 /* PhoneListViewController.swift */; };
+		CB8B07112271628F00D6941C /* FavListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8B07102271628F00D6941C /* FavListManager.swift */; };
+		CBB4483D227163A700D43D28 /* TourListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8B0713227162DD00D6941C /* TourListModel.swift */; };
+		CBB4483F2271BAC300D43D28 /* MyFavListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB4483E2271BAC300D43D28 /* MyFavListViewController.swift */; };
+		CBB448412271BCE100D43D28 /* FavListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB448402271BCE100D43D28 /* FavListViewModel.swift */; };
 		CBB6854D226D5ED300A342DC /* ItineraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB6854C226D5ED300A342DC /* ItineraryViewModel.swift */; };
 		CBB6854F226D6D2400A342DC /* ItineraryViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB6854E226D6D2400A342DC /* ItineraryViewViewController.swift */; };
 		CBD9997C22670EE900B0DCB7 /* DetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBD9997322670EE800B0DCB7 /* DetailHeaderView.xib */; };
@@ -31,9 +35,12 @@
 		CBDC430422535771006E00B0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDC430322535771006E00B0 /* Extensions.swift */; };
 		CBDCDF27226EB4A600D7D39E /* PriceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDCDF26226EB4A600D7D39E /* PriceViewController.swift */; };
 		CBDCDF29226EB7B200D7D39E /* PriceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDCDF28226EB7B200D7D39E /* PriceViewModel.swift */; };
+		CBE5997B2272B5A000AA5F96 /* TourItemCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE5997A2272B5A000AA5F96 /* TourItemCellViewModel.swift */; };
+		CBE5997D2272BA0500AA5F96 /* TourItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE5997C2272BA0500AA5F96 /* TourItemCell.swift */; };
+		CBE5997F2272C2F600AA5F96 /* TourDatesCalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE5997E2272C2F600AA5F96 /* TourDatesCalendarViewModel.swift */; };
+		CBE599812272C34A00AA5F96 /* TourDatesCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE599802272C34A00AA5F96 /* TourDatesCalendarViewController.swift */; };
 		CBE9AC3122671095003B898E /* TourListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE9AC2E22671094003B898E /* TourListViewModel.swift */; };
 		CBE9AC3222671095003B898E /* TourDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE9AC2F22671094003B898E /* TourDetailViewModel.swift */; };
-		CBE9AC3322671095003B898E /* TourListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE9AC3022671094003B898E /* TourListModel.swift */; };
 		CBEF264E2251BCA400443D68 /* UIViewController+RxSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEF264D2251BCA400443D68 /* UIViewController+RxSwift.swift */; };
 		D28D10801DEC95B70070B48A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28D107F1DEC95B70070B48A /* AppDelegate.swift */; };
 		D28D10851DEC95B70070B48A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D28D10831DEC95B70070B48A /* Main.storyboard */; };
@@ -60,6 +67,11 @@
 		CB6A5FED226712C500066477 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		CB6A5FEE226712C500066477 /* SideSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideSettingViewController.swift; sourceTree = "<group>"; };
 		CB6A5FF22267192F00066477 /* PhoneListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneListViewController.swift; sourceTree = "<group>"; };
+		CB84583E224DC99200F8FC05 /* Note.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Note.md; sourceTree = "<group>"; };
+		CB8B07102271628F00D6941C /* FavListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavListManager.swift; sourceTree = "<group>"; };
+		CB8B0713227162DD00D6941C /* TourListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourListModel.swift; sourceTree = "<group>"; };
+		CBB4483E2271BAC300D43D28 /* MyFavListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavListViewController.swift; sourceTree = "<group>"; };
+		CBB448402271BCE100D43D28 /* FavListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavListViewModel.swift; sourceTree = "<group>"; };
 		CBB6854C226D5ED300A342DC /* ItineraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryViewModel.swift; sourceTree = "<group>"; };
 		CBB6854E226D6D2400A342DC /* ItineraryViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryViewViewController.swift; sourceTree = "<group>"; };
 		CBD9997322670EE800B0DCB7 /* DetailHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailHeaderView.xib; sourceTree = "<group>"; };
@@ -69,9 +81,12 @@
 		CBDC430322535771006E00B0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		CBDCDF26226EB4A600D7D39E /* PriceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceViewController.swift; sourceTree = "<group>"; };
 		CBDCDF28226EB7B200D7D39E /* PriceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceViewModel.swift; sourceTree = "<group>"; };
+		CBE5997A2272B5A000AA5F96 /* TourItemCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourItemCellViewModel.swift; sourceTree = "<group>"; };
+		CBE5997C2272BA0500AA5F96 /* TourItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourItemCell.swift; sourceTree = "<group>"; };
+		CBE5997E2272C2F600AA5F96 /* TourDatesCalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourDatesCalendarViewModel.swift; sourceTree = "<group>"; };
+		CBE599802272C34A00AA5F96 /* TourDatesCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourDatesCalendarViewController.swift; sourceTree = "<group>"; };
 		CBE9AC2E22671094003B898E /* TourListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourListViewModel.swift; sourceTree = "<group>"; };
 		CBE9AC2F22671094003B898E /* TourDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourDetailViewModel.swift; sourceTree = "<group>"; };
-		CBE9AC3022671094003B898E /* TourListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourListModel.swift; sourceTree = "<group>"; };
 		CBEF264D2251BCA400443D68 /* UIViewController+RxSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+RxSwift.swift"; sourceTree = "<group>"; };
 		D28D107C1DEC95B70070B48A /* FantasyTourApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FantasyTourApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D28D107F1DEC95B70070B48A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +140,25 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
+		CB8B070D2271627A00D6941C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CB8B0713227162DD00D6941C /* TourListModel.swift */,
+				CB8B07102271628F00D6941C /* FavListManager.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CB8B0712227162A000D6941C /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				CBEF264D2251BCA400443D68 /* UIViewController+RxSwift.swift */,
+				CBDC430122535744006E00B0 /* Enums.swift */,
+				CBDC430322535771006E00B0 /* Extensions.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		CBD9997122670EE800B0DCB7 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +172,9 @@
 				CBB6854E226D6D2400A342DC /* ItineraryViewViewController.swift */,
 				CBDCDF26226EB4A600D7D39E /* PriceViewController.swift */,
 				CB1BBEFB22701B1A00A9A3CB /* TripNoteViewController.swift */,
+				CBB4483E2271BAC300D43D28 /* MyFavListViewController.swift */,
+				CBE5997C2272BA0500AA5F96 /* TourItemCell.swift */,
+				CBE599802272C34A00AA5F96 /* TourDatesCalendarViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -146,13 +183,15 @@
 			isa = PBXGroup;
 			children = (
 				CBE9AC2F22671094003B898E /* TourDetailViewModel.swift */,
-				CBE9AC3022671094003B898E /* TourListModel.swift */,
 				CBE9AC2E22671094003B898E /* TourListViewModel.swift */,
 				CB17DFDE22698473008E1287 /* BaseVCViewModel.swift */,
 				CB17DFE02269A01A008E1287 /* FlightInfoViewModel.swift */,
 				CBB6854C226D5ED300A342DC /* ItineraryViewModel.swift */,
 				CBDCDF28226EB7B200D7D39E /* PriceViewModel.swift */,
 				CB1BBEFD22701BE500A9A3CB /* TripNoteViewModel.swift */,
+				CBB448402271BCE100D43D28 /* FavListViewModel.swift */,
+				CBE5997A2272B5A000AA5F96 /* TourItemCellViewModel.swift */,
+				CBE5997E2272C2F600AA5F96 /* TourDatesCalendarViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -161,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				CB280E3F22657F3A009E765B /* TabPageViewController */,
+				CB84583E224DC99200F8FC05 /* Note.md */,
 				D28D107E1DEC95B70070B48A /* Networking */,
 				D28D107D1DEC95B70070B48A /* Products */,
 				8719747F3FD93E510438CAA8 /* Frameworks */,
@@ -179,6 +219,8 @@
 		D28D107E1DEC95B70070B48A /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				CB8B0712227162A000D6941C /* Util */,
+				CB8B070D2271627A00D6941C /* Model */,
 				CBD9997122670EE800B0DCB7 /* ViewController */,
 				CBD9997722670EE800B0DCB7 /* ViewModel */,
 				D28D107F1DEC95B70070B48A /* AppDelegate.swift */,
@@ -186,9 +228,6 @@
 				D28D10861DEC95B70070B48A /* Assets.xcassets */,
 				D28D10881DEC95B70070B48A /* LaunchScreen.storyboard */,
 				D28D108B1DEC95B70070B48A /* Info.plist */,
-				CBEF264D2251BCA400443D68 /* UIViewController+RxSwift.swift */,
-				CBDC430122535744006E00B0 /* Enums.swift */,
-				CBDC430322535771006E00B0 /* Extensions.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -225,8 +264,9 @@
 				TargetAttributes = {
 					D28D107B1DEC95B70070B48A = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 392DCPHLMM;
 						LastSwiftMigration = 1020;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -269,27 +309,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBB4483D227163A700D43D28 /* TourListModel.swift in Sources */,
 				CBDCDF27226EB4A600D7D39E /* PriceViewController.swift in Sources */,
 				CBE9AC3222671095003B898E /* TourDetailViewModel.swift in Sources */,
 				CBD9997D22670EE900B0DCB7 /* TourDetailPageViewController.swift in Sources */,
+				CB8B07112271628F00D6941C /* FavListManager.swift in Sources */,
 				CB1BBEFC22701B1A00A9A3CB /* TripNoteViewController.swift in Sources */,
 				CBDCDF29226EB7B200D7D39E /* PriceViewModel.swift in Sources */,
 				CB280E4822657F3B009E765B /* TabCollectionCell.swift in Sources */,
 				CB6A5FF0226712C500066477 /* SideSettingViewController.swift in Sources */,
-				CBE9AC3322671095003B898E /* TourListModel.swift in Sources */,
 				CB280E4C22657F3B009E765B /* TabPageOption.swift in Sources */,
 				CB6A5FEF226712C500066477 /* BaseViewController.swift in Sources */,
 				CBE9AC3122671095003B898E /* TourListViewModel.swift in Sources */,
+				CBB4483F2271BAC300D43D28 /* MyFavListViewController.swift in Sources */,
 				CB17DFDF22698473008E1287 /* BaseVCViewModel.swift in Sources */,
+				CBB448412271BCE100D43D28 /* FavListViewModel.swift in Sources */,
 				CB17DFDD22696D66008E1287 /* FlightInfoViewController.swift in Sources */,
 				CBEF264E2251BCA400443D68 /* UIViewController+RxSwift.swift in Sources */,
 				CBD9997E22670EE900B0DCB7 /* TourListViewController.swift in Sources */,
 				CBB6854F226D6D2400A342DC /* ItineraryViewViewController.swift in Sources */,
+				CBE5997B2272B5A000AA5F96 /* TourItemCellViewModel.swift in Sources */,
+				CBE599812272C34A00AA5F96 /* TourDatesCalendarViewController.swift in Sources */,
 				CBDC430422535771006E00B0 /* Extensions.swift in Sources */,
 				CB17DFE12269A01A008E1287 /* FlightInfoViewModel.swift in Sources */,
+				CBE5997F2272C2F600AA5F96 /* TourDatesCalendarViewModel.swift in Sources */,
 				CBB6854D226D5ED300A342DC /* ItineraryViewModel.swift in Sources */,
 				D28D10801DEC95B70070B48A /* AppDelegate.swift in Sources */,
 				CBDC430222535744006E00B0 /* Enums.swift in Sources */,
+				CBE5997D2272BA0500AA5F96 /* TourItemCell.swift in Sources */,
 				CB6A5FF32267192F00066477 /* PhoneListViewController.swift in Sources */,
 				CB1BBEFE22701BE500A9A3CB /* TripNoteViewModel.swift in Sources */,
 				CB280E4B22657F3B009E765B /* TabPageViewController.swift in Sources */,
@@ -437,8 +484,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 392DCPHLMM;
 				INFOPLIST_FILE = Networking/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.NewSample.FantasyTourApp;
@@ -453,8 +501,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 392DCPHLMM;
 				INFOPLIST_FILE = Networking/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.NewSample.FantasyTourApp;

@@ -14,6 +14,7 @@ class SideSettingViewController: UIViewController, DrawerVCProtocol {
     @IBOutlet weak var mainVCContainer : UIView?
     @IBOutlet weak var drawerView : UIView?
     @IBOutlet weak var drawerRightConstraint: NSLayoutConstraint?
+    var tap : UITapGestureRecognizer?
     
     var vc : UINavigationController?//UIViewController?
     
@@ -21,9 +22,21 @@ class SideSettingViewController: UIViewController, DrawerVCProtocol {
         super.viewDidLoad()
 
         setupMainVCView()
+        setupTapOff()
     }
     
-    
+    private func setupTapOff() {
+        tap = UITapGestureRecognizer(target: self, action: #selector(self.tapToOff(_:)))
+        if let tap = tap {
+            tap.cancelsTouchesInView = false
+            self.view.addGestureRecognizer(tap)
+        }
+    }
+    @objc func tapToOff(_ tap : UITapGestureRecognizer) {
+        if isDrawerShown {
+            self.switchDrawer()
+        }
+    }
     private func setupMainVCView() {
         if let centerView = self.mainVCContainer {
             
@@ -68,8 +81,8 @@ class SideSettingViewController: UIViewController, DrawerVCProtocol {
         if let ss = self.vc {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
-            if let fv  = storyboard.instantiateViewController(withIdentifier: "MyFavListVC") as? FavListViewController {
-                ss.pushViewController(fv, animated: false)
+            if let fv  = storyboard.instantiateViewController(withIdentifier: "MyFavListVC") as? MyFavListViewController {
+                ss.pushViewController(fv, animated: true)
                 self.switchDrawer()
                 
             } else {
@@ -98,6 +111,17 @@ class SideSettingViewController: UIViewController, DrawerVCProtocol {
             }
         }
         isDrawerShown = !isDrawerShown
+        if isDrawerShown {
+            if let tap = tap {
+                tap.isEnabled = true
+                tap.cancelsTouchesInView = true
+            }
+        } else {
+            if let tap = tap {
+                tap.cancelsTouchesInView = false
+                tap.isEnabled = false
+            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -111,9 +135,3 @@ class SideSettingViewController: UIViewController, DrawerVCProtocol {
 }
 
 
-class FavListViewController : UIViewController {
-    
-    @IBAction func dismissVC(_ sender: Any? ) {
-        self.dismiss(animated: true, completion: nil)
-    }
-}

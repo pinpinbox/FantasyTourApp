@@ -13,7 +13,7 @@ import WebKit
 
 private let reuseIdentifierCell = "ItineraryCell"
 private let reuseHeaderIdentitfier = "ItineraryHeader"
-let dayColor = UIColor(red: 253.0/256/0 , green:206.0/256.0 , blue: 104.0/256.0, alpha: 1.0)
+let dayColor = UIColor(red: 253.0/256.0 , green:206.0/256.0 , blue: 104.0/256.0, alpha: 1.0)
 
 class iHeaderView: UICollectionReusableView {
     @IBOutlet weak var date : UILabel?

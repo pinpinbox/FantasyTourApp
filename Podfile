@@ -5,5 +5,7 @@ target 'FantasyTourApp' do
     pod 'RxCocoa'
     pod 'RxDataSources'
     pod 'RealmSwift'
+    pod 'SDWebImage'
+    pod 'KDCalendar'
 end
 

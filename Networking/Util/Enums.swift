@@ -12,12 +12,14 @@ enum TourListType : String, CaseIterable, Equatable {
     case latest = "getlatestlist"
     case highest = "gethighestrevenuelist"
     case mostpopular = "getmostpeoplelist"
+    case fav = "fav"
     
     func indexOf() -> Int {
         switch self {
             case .latest : return 0
             case .highest : return 1
             case .mostpopular : return 2
+            case .fav : return 3
         }
         
     }

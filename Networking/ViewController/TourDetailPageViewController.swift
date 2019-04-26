@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 internal class DetailHeaderView : UIView {
     @IBOutlet var contentView: UIView!
@@ -97,17 +98,19 @@ internal class DetailHeaderView : UIView {
         }
         
         let url = detail.tour.cover
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let data = data,
-                let image = UIImage(data: data) {
-                DispatchQueue.main.async {                
-                    self.imageView.image = image
-                }
-            }
-            
-        }
-        
-        task.resume()
+        //imageView.sd_setImage(with: URL(string: "http://www.domain.com/path/to/image.jpg"), placeholderImage: UIImage(named: "placeholder.png"))
+        self.imageView.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholder"))
+//        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+//            if let data = data,
+//                let image = UIImage(data: data) {
+//                DispatchQueue.main.async {
+//                    self.imageView.image = image
+//                }
+//            }
+//
+//        }
+//
+//        task.resume()
         
         
     }

@@ -1,26 +1,28 @@
-
+//
+//  MyFavListViewController.swift
+//  FantasyTourApp
+//
+//  Created by Antelis on 2019/4/25.
+//  Copyright © 2019 Scott Gardner. All rights reserved.
+//
 
 import UIKit
 import RxSwift
 import RxCocoa
-import RxDataSources
 
-//MARK: -
-//MARK: NOTE - Be mindful of Guideline 4.2.2 violation
-//MARK: -
+class MyFavListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
-class TourListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    @IBOutlet weak var favlistView: UICollectionView?
+    @IBOutlet weak var emptyHint : UIButton?
     
-    @IBOutlet weak var listView : UICollectionView?
-    @IBOutlet weak var countItem : UINavigationItem?
-    
-    var viewModel = TourListViewModel(.mostpopular)
+    let viewModel = FavListViewModel(.fav)
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if let _ = listView {
+
+        // Do any additional setup after loading the view.
+        if let _ = favlistView {
             bind()
         }
         definesPresentationContext = true
@@ -32,39 +34,54 @@ class TourListViewController: UIViewController, UICollectionViewDelegate, UIColl
             .bind(to: viewModel.viewWillAppear)
             .disposed(by: disposeBag)
         
-        if let listView = listView {
-            listView.rx.itemSelected
+        if let hint = emptyHint {
+            hint.layer.cornerRadius = 10
+            hint.clipsToBounds = true
+        }
+        
+        if let list = favlistView {
+            
+            list.rx.itemSelected
                 .map { $0.row }
                 .bind(to: viewModel.itemSelected)
                 .disposed(by: disposeBag)
             
-            listView.rx.itemSelected
+            list.rx.itemSelected
                 .subscribe(onNext: { [unowned self] in
-                    self.listView?.deselectItem(at: $0, animated: false)
+                    self.favlistView?.deselectItem(at: $0, animated: false)
                     // self present vc here //
                     
                     }, onError: { (error) in
                         print("item Selected error : \(error.localizedDescription)")
                 }).disposed(by: disposeBag)
             
-            listView.rx.contentOffset.asDriver()
-                .map { _ in self.shouldRequestNextPage() }
-                .distinctUntilChanged()
-                .filter { $0 }
-                //.withLatestFrom(
-                //.filter { !$0 }
-                .drive(onNext: { _ in self.viewModel.retrieveList(self.viewModel.listType) })
-                .disposed(by: disposeBag)
+//            list.rx.contentOffset.asDriver()
+//                .map { _ in self.shouldRequestNextPage() }
+//                .distinctUntilChanged()
+//                .filter { $0 }
+//                .drive(onNext: { _ in self.viewModel.retrieveList(self.viewModel.listType) })
+//                .disposed(by: disposeBag)
+//            
+            
+            viewModel.guideList.asObservable().bind { (guides) in
+                list.isHidden = (guides.count < 1)
+            }.disposed(by: disposeBag)
             
             viewModel.guideList.asDriver()
-                .drive(listView.rx.items(cellIdentifier: "TourItemCell",
+                .drive(list.rx.items(cellIdentifier: "TourItemCell",
                                          cellType: TourItemCell.self)
-                ){(_, element, cell) in
+                ){(index, element, cell) in
                     cell.viewModel.updateTour(element)
                     cell.viewModel.phoneBtnPressedBlock = {
-                        DispatchQueue.main.async {                                                
-                            let p = PhoneListViewController()                                                    
+                        DispatchQueue.main.async {
+                            let p = PhoneListViewController()
                             self.present(p, animated: true, completion: nil)
+                        }
+                    }
+                    cell.viewModel.favRemovedBlock = {
+                        DispatchQueue.main.async {
+                            //list.deleteItems(at: [IndexPath(item: index, section: 0)])
+                            self.viewModel.removeFavItemAt(index)
                         }
                     }
                 }.disposed(by: disposeBag)
@@ -84,16 +101,13 @@ class TourListViewController: UIViewController, UICollectionViewDelegate, UIColl
         }
         
     }
-    
-    private func shouldRequestNextPage() -> Bool {
-        if let list = self.listView {
-            let edge = UIScreen.main.bounds.height
-        return list.contentSize.height > 0 &&
-            list.isNearBottom(edgeOffset: edge )
-        }
-        return false
+    @IBAction func dismissView(_ sender : Any?) {
+        self.navigationController?.popViewController(animated: true)
     }
-    
+    private func shouldRequestNextPage() -> Bool {
+        return true
+    }
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let w = UIScreen.main.bounds.width
         return CGSize(width: w, height: w*220/375)
@@ -109,5 +123,5 @@ class TourListViewController: UIViewController, UICollectionViewDelegate, UIColl
         return 10.0
     }
     
-}
 
+}

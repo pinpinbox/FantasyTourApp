@@ -39,6 +39,8 @@ class BaseViewModel : NSObject, UIPageViewControllerDelegate, UIPageViewControll
                 return listVCs[0]
             case .mostpopular :
                 return listVCs[1]
+            default:
+                return nil
             }
         }
         
@@ -54,6 +56,8 @@ class BaseViewModel : NSObject, UIPageViewControllerDelegate, UIPageViewControll
             case .highest :
                 return listVCs[2]
             case .mostpopular :
+                return nil
+            default :
                 return nil
             }
         }
@@ -73,7 +77,8 @@ class BaseViewModel : NSObject, UIPageViewControllerDelegate, UIPageViewControll
             case .mostpopular :
                 self.curList.accept(2)
                 break
-                
+            default:
+                break
             }
         }
     }
