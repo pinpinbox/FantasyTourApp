@@ -124,7 +124,7 @@ class TourItemCell: UICollectionViewCell {
         
     }
     private func bind() {
-        guard let t = tourName, let ds = datesList, let re = region, let pr = price, let cover = self.imageView, let phone = phone, let f = fav else { return }
+        guard let t = tourName, let ds = datesList, let re = region, let pr = price, let cover = self.imageView, let f = fav else { return }
         
         //phone.addTarget(self, action: #selector(self.phoneBtnPressed(_:)), for: .touchUpInside)
         
@@ -183,7 +183,7 @@ class TourItemCell: UICollectionViewCell {
             tourCalendar.rx.tap.asObservable().bind {
                 if let block = self.viewModel.tourDatesBtnBlock {
                     
-                    block(self.viewModel.dates)
+                    block(self.viewModel.tid)
                 }
                 }.disposed(by: disposeBag)
         }

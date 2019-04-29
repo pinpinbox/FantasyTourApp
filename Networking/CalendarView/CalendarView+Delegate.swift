@@ -56,7 +56,7 @@ extension CalendarView: UICollectionViewDelegateFlowLayout {
     }
     
     public func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-            return false
+            return true
 //        guard let dateBeingSelected = self.dateFromIndexPath(indexPath) else { return false }
 //
 //        if let delegate = self.delegate {

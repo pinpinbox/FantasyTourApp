@@ -138,6 +138,13 @@ open class CalendarDayCell: UICollectionViewCell {
         self.dotsView.frame                 = CGRect(x: 0, y: 0, width: size, height: size)
         self.dotsView.center                = CGPoint(x: self.textLabel.center.x, y: self.bounds.height*0.5)
         self.dotsView.layer.cornerRadius    = size * 0.5 // round it
+        if isSelected {
+            self.dotsView.layer.borderWidth = 3
+            self.dotsView.layer.borderColor = UIColor.purple.cgColor
+        } else {
+            self.dotsView.layer.borderWidth = 0
+        }
+        
         self.bringSubviewToFront(self.textLabel)
         switch CalendarView.Style.cellShape {
         case .square:

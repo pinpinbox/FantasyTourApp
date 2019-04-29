@@ -172,3 +172,18 @@ struct Price : Decodable {
         }
     }
 }
+
+struct getdatelistItem : Decodable {
+    let result : String
+    let data : Array<DateDetail>
+}
+
+struct DateDetail : Decodable {
+    let date: String //"2019-05-16",
+    let hide_price : Bool//false,
+    let hide_price_title: String // "電洽",
+    let price: Int //146900,
+    let tour_id: String //"EDECLH11190516B"
+    
+    
+}

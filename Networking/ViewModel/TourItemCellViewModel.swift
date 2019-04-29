@@ -28,7 +28,7 @@ class TourItemCellViewModel {
     
     var phoneBtnPressedBlock : (() -> Void)?
     var favRemovedBlock: (() -> Void)?
-    var tourDatesBtnBlock: ((_ list : Array<Date>) -> Void)?
+    var tourDatesBtnBlock: ((_ tour_id : String) -> Void)?
     
     var tid = String()
     var guidestr = String()

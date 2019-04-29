@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fAr-kX-xcW">
-    <device id="retina5_9" orientation="portrait">
+    <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,11 +15,14 @@
             <objects>
                 <viewController storyboardIdentifier="TourListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="U0X-nV-lmY" customClass="TourListViewController" customModule="FantasyTourApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EtX-7O-uA0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Oag-gB-PoB">
-                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="cLF-zG-Lu7">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Oag-gB-PoB">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" sectionInsetReference="safeArea" id="q4u-cJ-1JU">
                                     <size key="itemSize" width="414" height="220"/>
@@ -29,7 +32,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TourItemCell" id="vAn-RE-Tb6" customClass="TourItemCell" customModule="FantasyTourApp" customModuleProvider="target">
-                                        <rect key="frame" x="-19.666666666666668" y="16" width="414" height="220"/>
+                                        <rect key="frame" x="0.0" y="16" width="414" height="220"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="220"/>
@@ -181,6 +184,8 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Oag-gB-PoB" firstAttribute="leading" secondItem="OT0-J7-crk" secondAttribute="leading" id="AIO-rm-ieF"/>
+                            <constraint firstItem="cLF-zG-Lu7" firstAttribute="centerX" secondItem="EtX-7O-uA0" secondAttribute="centerX" id="B4y-4J-iTX"/>
+                            <constraint firstItem="cLF-zG-Lu7" firstAttribute="centerY" secondItem="EtX-7O-uA0" secondAttribute="centerY" id="MeG-D6-gPJ"/>
                             <constraint firstItem="Oag-gB-PoB" firstAttribute="trailing" secondItem="OT0-J7-crk" secondAttribute="trailing" id="jnx-t5-n4H"/>
                             <constraint firstItem="Oag-gB-PoB" firstAttribute="top" secondItem="OT0-J7-crk" secondAttribute="top" id="llD-Rd-AE7"/>
                             <constraint firstItem="Oag-gB-PoB" firstAttribute="bottom" secondItem="OT0-J7-crk" secondAttribute="bottom" id="xQQ-U6-QQu"/>
@@ -190,6 +195,7 @@
                     <navigationItem key="navigationItem" id="rFd-bx-cxi"/>
                     <connections>
                         <outlet property="listView" destination="Oag-gB-PoB" id="ycu-Pp-Vxk"/>
+                        <outlet property="loadngView" destination="cLF-zG-Lu7" id="riX-Zr-DHL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oqI-a7-YBP" sceneMemberID="firstResponder"/>
@@ -201,14 +207,14 @@
             <objects>
                 <viewController id="fAr-kX-xcW" customClass="SideSettingViewController" customModule="FantasyTourApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q12-i4-KMD">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="0KR-Ot-0Lb">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h4g-1T-Eed" userLabel="ListView">
-                                <rect key="frame" x="-200" y="108" width="200" height="670"/>
+                                <rect key="frame" x="-200" y="108" width="200" height="754"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="arj-s8-Zvt">
                                         <rect key="frame" x="0.0" y="32" width="200" height="24"/>
@@ -222,7 +228,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Favourites" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MM7-kL-rMA">
-                                                <rect key="frame" x="28.999999999999993" y="3.6666666666666572" width="96.333333333333314" height="17"/>
+                                                <rect key="frame" x="29" y="3.5" width="96.5" height="17"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                 <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                                 <nil key="highlightedColor"/>
@@ -258,7 +264,7 @@
                                 </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="nYc-Dc-m7f" userLabel="MainVCContainerView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <connections>
                                     <segue destination="duV-no-TVb" kind="embed" identifier="MainVCEmbed" id="z3F-17-K2v"/>
                                 </connections>
@@ -297,7 +303,7 @@
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="et5-eS-fXO">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -314,14 +320,14 @@
             <objects>
                 <viewController storyboardIdentifier="TourDatesCalendarViewController" id="igl-YN-S3H" customClass="TourDatesCalendarViewController" customModule="FantasyTourApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="R2u-g9-wdz">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p7B-nn-Auv">
-                                <rect key="frame" x="20" y="190" width="335" height="396"/>
+                                <rect key="frame" x="20" y="232" width="374" height="428"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="出發日" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1p-Yd-CvB">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="36"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="36" id="lz3-GT-TNY"/>
                                         </constraints>
@@ -342,45 +348,67 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Klo-dc-Ky0" customClass="CalendarView" customModule="FantasyTourApp" customModuleProvider="target">
-                                <rect key="frame" x="20" y="226" width="335" height="360"/>
+                            <view multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Klo-dc-Ky0" customClass="CalendarView" customModule="FantasyTourApp" customModuleProvider="target">
+                                <rect key="frame" x="20" y="268" width="374" height="360"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="360" id="Fdc-SQ-gzC"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iby-rz-aXF">
+                                <rect key="frame" x="20" y="628" width="374" height="32"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1111" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fnO-G1-Jtd">
+                                        <rect key="frame" x="64" y="0.0" width="246" height="32"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="CYu-OI-S2g"/>
+                                    <constraint firstItem="fnO-G1-Jtd" firstAttribute="trailing" secondItem="Iby-rz-aXF" secondAttribute="trailing" constant="-64" id="KQi-3f-MTq"/>
+                                    <constraint firstItem="fnO-G1-Jtd" firstAttribute="bottom" secondItem="Iby-rz-aXF" secondAttribute="bottom" id="TTb-EA-ihg"/>
+                                    <constraint firstItem="fnO-G1-Jtd" firstAttribute="top" secondItem="Iby-rz-aXF" secondAttribute="top" id="Wi3-3k-OVr"/>
+                                    <constraint firstItem="fnO-G1-Jtd" firstAttribute="leading" secondItem="Iby-rz-aXF" secondAttribute="leading" constant="64" id="cxq-KS-Iih"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Klo-dc-Ky0" firstAttribute="leading" secondItem="feT-2K-g58" secondAttribute="leading" constant="20" id="Bj5-s1-kii"/>
+                            <constraint firstItem="Iby-rz-aXF" firstAttribute="trailing" secondItem="Klo-dc-Ky0" secondAttribute="trailing" id="CbS-9e-PDa"/>
                             <constraint firstItem="p7B-nn-Auv" firstAttribute="trailing" secondItem="Klo-dc-Ky0" secondAttribute="trailing" id="FeE-aG-gj1"/>
                             <constraint firstItem="p7B-nn-Auv" firstAttribute="leading" secondItem="Klo-dc-Ky0" secondAttribute="leading" id="Sqi-N6-7ZU"/>
                             <constraint firstItem="Klo-dc-Ky0" firstAttribute="centerY" secondItem="R2u-g9-wdz" secondAttribute="centerY" id="TEb-9g-o3Y"/>
                             <constraint firstItem="p7B-nn-Auv" firstAttribute="top" secondItem="Klo-dc-Ky0" secondAttribute="top" constant="-36" id="bqc-Ta-97b"/>
                             <constraint firstItem="Klo-dc-Ky0" firstAttribute="centerX" secondItem="R2u-g9-wdz" secondAttribute="centerX" id="chg-Q0-9Fs"/>
+                            <constraint firstItem="Iby-rz-aXF" firstAttribute="top" secondItem="Klo-dc-Ky0" secondAttribute="bottom" id="eUw-rO-dlB"/>
                             <constraint firstItem="Klo-dc-Ky0" firstAttribute="trailing" secondItem="feT-2K-g58" secondAttribute="trailing" constant="-20" id="kmv-eP-vAU"/>
-                            <constraint firstItem="p7B-nn-Auv" firstAttribute="bottom" secondItem="Klo-dc-Ky0" secondAttribute="bottom" id="tSZ-gQ-acI"/>
+                            <constraint firstItem="Iby-rz-aXF" firstAttribute="leading" secondItem="Klo-dc-Ky0" secondAttribute="leading" id="num-Ly-gN4"/>
+                            <constraint firstItem="p7B-nn-Auv" firstAttribute="bottom" secondItem="Klo-dc-Ky0" secondAttribute="bottom" constant="32" id="tSZ-gQ-acI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="feT-2K-g58"/>
                     </view>
                     <connections>
                         <outlet property="calendar" destination="Klo-dc-Ky0" id="HwW-kJ-eIO"/>
+                        <outlet property="detailLabel" destination="fnO-G1-Jtd" id="Hey-lT-3qa"/>
                         <outlet property="shadow" destination="p7B-nn-Auv" id="E1T-tw-SEs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b0l-hK-6Jf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1222" y="129"/>
+            <point key="canvasLocation" x="1221.7391304347827" y="128.57142857142856"/>
         </scene>
         <!--收藏的行程-->
         <scene sceneID="AoB-21-48L">
             <objects>
                 <viewController storyboardIdentifier="MyFavListVC" title="收藏的行程" id="iFb-V8-ujl" customClass="MyFavListViewController" customModule="FantasyTourApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b33-8p-kKk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IVA-On-6e0">
-                                <rect key="frame" x="77.666666666666686" y="382" width="220" height="48"/>
+                                <rect key="frame" x="97" y="424" width="220" height="48"/>
                                 <color key="backgroundColor" red="0.99215686274509807" green="0.80784313725490198" blue="0.40784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="220" id="KeO-Rn-m22"/>
@@ -395,7 +423,7 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="u0p-bu-fhu">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" sectionInsetReference="safeArea" id="Bgf-nz-wZy">
                                     <size key="itemSize" width="414" height="220"/>
@@ -405,7 +433,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TourItemCell" id="jOZ-Qe-9nC" customClass="TourItemCell" customModule="FantasyTourApp" customModuleProvider="target">
-                                        <rect key="frame" x="-19.666666666666668" y="16" width="414" height="220"/>
+                                        <rect key="frame" x="0.0" y="16" width="414" height="220"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="220"/>
@@ -582,17 +610,17 @@
             <objects>
                 <viewController id="7ty-7m-ZH8" customClass="BaseViewController" customModule="FantasyTourApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PPN-V5-mJG">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lRQ-Re-aw4">
-                                <rect key="frame" x="0.0" y="88" width="375" height="607"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <connections>
                                     <segue destination="08T-Hh-7cA" kind="embed" identifier="pagevcs" id="N6H-Y0-ez6"/>
                                 </connections>
                             </containerView>
                             <tabBar opaque="NO" contentMode="scaleToFill" translucent="NO" itemPositioning="fill" translatesAutoresizingMaskIntoConstraints="NO" id="ykR-7i-Y8U">
-                                <rect key="frame" x="0.0" y="695" width="375" height="83"/>
+                                <rect key="frame" x="0.0" y="813" width="414" height="83"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <tabBarItem title="Latest" image="latest" id="rDK-t1-NZM"/>
@@ -608,7 +636,7 @@
                             <constraint firstItem="lRQ-Re-aw4" firstAttribute="leading" secondItem="ERd-vs-fIU" secondAttribute="leading" id="LpV-9T-1Pu"/>
                             <constraint firstItem="lRQ-Re-aw4" firstAttribute="trailing" secondItem="ERd-vs-fIU" secondAttribute="trailing" id="ZFq-vJ-8gD"/>
                             <constraint firstItem="lRQ-Re-aw4" firstAttribute="top" secondItem="ERd-vs-fIU" secondAttribute="top" id="bIp-fR-6z5"/>
-                            <constraint firstItem="ykR-7i-Y8U" firstAttribute="bottom" secondItem="ERd-vs-fIU" secondAttribute="bottom" id="jFV-so-IJL"/>
+                            <constraint firstItem="ykR-7i-Y8U" firstAttribute="bottom" secondItem="PPN-V5-mJG" secondAttribute="bottom" id="jFV-so-IJL"/>
                             <constraint firstItem="lRQ-Re-aw4" firstAttribute="bottom" secondItem="ykR-7i-Y8U" secondAttribute="top" id="jc6-wP-dK3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ERd-vs-fIU"/>
@@ -643,11 +671,11 @@
             <objects>
                 <viewController storyboardIdentifier="FlightInfoVC" id="uFM-tA-gdj" customClass="FlightInfoViewController" customModule="FantasyTourApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qd4-H3-Itp">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Zjl-0K-KZR">
-                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SrG-f7-Pbk">
                                     <size key="itemSize" width="0.0" height="0.0"/>
@@ -657,7 +685,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" reuseIdentifier="FlightInfoCell" id="ObG-zI-UiF" customClass="FlightInfoCell" customModule="FantasyTourApp" customModuleProvider="target">
-                                        <rect key="frame" x="27.666666666666668" y="6" width="320" height="200"/>
+                                        <rect key="frame" x="47" y="6" width="320" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
@@ -702,7 +730,7 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TW2-uz-ior">
-                                                                    <rect key="frame" x="36" y="15.666666666666671" width="64" height="1"/>
+                                                                    <rect key="frame" x="36" y="15.5" width="64" height="1"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="1" id="0Jc-yl-lhS"/>
@@ -787,11 +815,11 @@
             <objects>
                 <viewController storyboardIdentifier="ItineraryVC" id="ugz-7f-X4s" customClass="ItineraryViewController" customModule="FantasyTourApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I1m-k6-r4K">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fjn-Mu-ynm">
-                                <rect key="frame" x="0.0" y="84" width="375" height="694"/>
+                                <rect key="frame" x="0.0" y="84" width="414" height="778"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="3SI-k0-NEh">
                                     <size key="itemSize" width="375" height="340"/>
@@ -801,7 +829,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ItineraryCell" id="rSc-OX-j4G" customClass="ItineraryCellView" customModule="FantasyTourApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="80" width="375" height="340"/>
+                                        <rect key="frame" x="19.5" y="80" width="375" height="340"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="340"/>
@@ -922,7 +950,7 @@
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ItineraryHeader" id="xty-O5-Lpi" customClass="iHeaderView" customModule="FantasyTourApp" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBf-Gp-OAa">
@@ -973,11 +1001,11 @@
             <objects>
                 <viewController storyboardIdentifier="FeeVC" id="0c7-YO-5fB" customClass="PriceViewController" customModule="FantasyTourApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iPg-36-Ult">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EMd-aT-BI9">
-                                <rect key="frame" x="0.0" y="90" width="375" height="688"/>
+                                <rect key="frame" x="0.0" y="90" width="414" height="772"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="T49-ma-1YY">
                                     <size key="itemSize" width="360" height="40"/>
@@ -987,20 +1015,20 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PriceCellView" id="Ld0-Cp-rjq" customClass="DetailCellView" customModule="FantasyTourApp" customModuleProvider="target">
-                                        <rect key="frame" x="7.666666666666667" y="6" width="360" height="40"/>
+                                        <rect key="frame" x="27" y="6" width="360" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="360" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9wp-kE-ibE">
-                                                    <rect key="frame" x="0.0" y="11" width="176.33333333333334" height="18"/>
+                                                    <rect key="frame" x="0.0" y="11" width="176.5" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vmV-mL-45S">
-                                                    <rect key="frame" x="184.33333333333334" y="11" width="37.333333333333343" height="18"/>
+                                                    <rect key="frame" x="184.5" y="11" width="37.5" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1048,11 +1076,11 @@
             <objects>
                 <viewController storyboardIdentifier="InfoVC" id="0t7-X8-sg3" customClass="TripNoteViewController" customModule="FantasyTourApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CpX-2D-sKm">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Uy7-No-8ZY">
-                                <rect key="frame" x="0.0" y="90" width="375" height="688"/>
+                                <rect key="frame" x="0.0" y="90" width="414" height="772"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qhb-wo-Flb">
                                     <size key="itemSize" width="360" height="60"/>
@@ -1062,7 +1090,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NoteCellView" id="u7s-SX-Ymi" customClass="DetailCellView" customModule="FantasyTourApp" customModuleProvider="target">
-                                        <rect key="frame" x="7.666666666666667" y="6" width="360" height="60"/>
+                                        <rect key="frame" x="27" y="6" width="360" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="360" height="60"/>
@@ -1130,10 +1158,10 @@
         <image name="extra" width="32" height="32"/>
         <image name="favourite" width="64" height="64"/>
         <image name="heart_empty" width="64" height="64"/>
-        <image name="highest" width="28" height="28"/>
+        <image name="highest" width="25" height="25"/>
         <image name="home" width="64" height="64"/>
-        <image name="latest" width="28" height="28"/>
-        <image name="popular" width="28" height="28"/>
+        <image name="latest" width="25" height="25"/>
+        <image name="popular" width="25" height="25"/>
         <image name="restaurant" width="64" height="64"/>
         <image name="walk" width="64" height="64"/>
     </resources>

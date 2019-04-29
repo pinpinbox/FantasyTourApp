@@ -7,30 +7,19 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
-class TourDatesCalendarViewController: UIViewController, CalendarViewDataSource {
+class TourDatesCalendarViewController: UIViewController {
     
     @IBOutlet weak var calendar : CalendarView?
     @IBOutlet weak var shadow : UIView?
-    var dates: Array<Date> = [] {
-        didSet {
-            
-            
-            dates.sort { (d1, d2) -> Bool in
-                let r = d1.compare(d2)
-                if r == .orderedAscending {
-                    return true
-                }
-                return false
+    @IBOutlet weak var detailLabel : UILabel?
 
-            }
-            
-            if let calendar = self.calendar {
-                calendar.dataSource = self
-                
-            }
-        }
-    }
+    private let disposeBag = DisposeBag()
+
+    var viewModel = TourDatesCalendarViewModel()
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         self.modalPresentationStyle = .overFullScreen
@@ -43,60 +32,63 @@ class TourDatesCalendarViewController: UIViewController, CalendarViewDataSource 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.modalPresentationStyle = .overFullScreen
-        // Do any additional setup after loading the view.
-        self.setupCalendarStyle()
+        bind()
+        setupCalendarStyle()
         
     }
     
-    
-    func startDate() -> Date {
-        if let d = dates.first {
-            return d
-        }
-        return Date()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
-    func endDate() -> Date {
-        if let d = dates.last {
-            return d
+    private func bind() {
+        viewModel.dateList.asObservable().subscribe(onNext: { (list) in
+            if let calendar = self.calendar, list.count > 0{
+                
+                calendar.calendar.timeZone = TimeZone.current
+                
+                calendar.dataSource = self.viewModel
+                calendar.delegate = self.viewModel
+                DispatchQueue.main.async {
+                    calendar.reloadData()
+                }
+                
+            }
+        }).disposed(by: disposeBag)
+        
+        
+        if let d = self.detailLabel {
+            viewModel.dateDetail
+                .asObservable()
+                .bind(to: d.rx.text)
+                .disposed(by: disposeBag)
         }
-        return Date()
     }
     
+   
     private func setupCalendarStyle() {
         
         CalendarView.Style.cellShape                = .bevel(8.0)
         CalendarView.Style.cellColorDefault         = UIColor.clear
         CalendarView.Style.cellColorToday           = UIColor(red:1.00, green:0.84, blue:0.64, alpha:1.00)
-        CalendarView.Style.cellSelectedBorderColor  = UIColor(red:1.00, green:0.63, blue:0.24, alpha:1.00)
+        CalendarView.Style.cellSelectedBorderColor  = UIColor.clear//UIColor(red:1.00, green:0.63, blue:0.24, alpha:1.00)
         CalendarView.Style.cellEventColor           = colorTables[4]
         CalendarView.Style.cellTextColorWeekend     = colorTables[3]
         CalendarView.Style.headerTextColor          = UIColor.white
         CalendarView.Style.cellTextColorDefault     = UIColor.white
         CalendarView.Style.cellTextColorToday       = UIColor(red:0.31, green:0.44, blue:0.47, alpha:1.00)
-        //CalendarView.Style.ca = Locale(identifier: "zh_TW")
+        //CalendarView.Style.loc //ca = Locale(identifier: "zh_TW")
         
         
         if let calendar = self.calendar {
-            calendar.dataSource = self
+            //calendar.dataSource = self.viewModel
             calendar.direction = .horizontal
         }
         
         self.view.backgroundColor = UIColor.clear
         setupBackgroundView()
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        if let calendar = self.calendar {
-            var days = Array<CalendarEvent>()
-            dates.forEach { (date) in
-                
-                let e = CalendarEvent(title:"出發日！", startDate: date, endDate: date)
-                days.append(e)
-            }
-            calendar.events = days
-        }
-    }
+    
     private func setupBackgroundView() {
         
         let backgroundview = UIView(frame: self.view.frame)
@@ -139,7 +131,7 @@ class TourDatesCalendarViewController: UIViewController, CalendarViewDataSource 
         view.addConstraints([top, left, right, bottom])
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(TourDatesCalendarViewController.tapAction(_ :)))
-        tap.cancelsTouchesInView = true
+        tap.cancelsTouchesInView = false
         backgroundview.addGestureRecognizer(tap)
         
         if let shadow = self.shadow {

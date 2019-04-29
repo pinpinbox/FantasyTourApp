@@ -84,12 +84,12 @@ class MyFavListViewController: UIViewController, UICollectionViewDelegate, UICol
                             self.viewModel.removeFavItemAt(index)
                         }
                     }
-                    cell.viewModel.tourDatesBtnBlock = {(dates) in
+                    cell.viewModel.tourDatesBtnBlock = {(tour_id) in
                         DispatchQueue.main.async {
                             let storyboard = UIStoryboard(name: "Main", bundle: nil)
                             
                             if let fv  = storyboard.instantiateViewController(withIdentifier: "TourDatesCalendarViewController") as? TourDatesCalendarViewController {
-                                fv.dates = dates
+                                //fv.dates = dates
                                 self.present(fv, animated: true, completion: nil)
                             }
                         }

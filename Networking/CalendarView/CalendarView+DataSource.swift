@@ -58,11 +58,27 @@ extension CalendarView: UICollectionViewDataSource {
             
             self.todayIndexPath = IndexPath(item: distanceFromTodayComponents.day!, section: distanceFromTodayComponents.month!)
         }
+        let count = self.calendar.dateComponents([.month], from: startOfMonthCache, to: endOfMonthCache).month! + 1
         
+        processMonthInfo(count)
         // if we are for example on the same month and the difference is 0 we still need 1 to display it
-        return self.calendar.dateComponents([.month], from: startOfMonthCache, to: endOfMonthCache).month! + 1
+        return count
     }
-    
+    private func processMonthInfo(_ monthCount : Int){
+        for i in 0..<monthCount {
+            var monthOffsetComponents = DateComponents()
+            monthOffsetComponents.month = i;
+            
+            guard
+                let correctMonthForSectionDate = self.calendar.date(byAdding: monthOffsetComponents, to: startOfMonthCache),
+                let info = self.getMonthInfo(for: correctMonthForSectionDate) else { continue }
+            
+            self.monthInfoForSection[i] = info
+        }
+        if let dataSource = self.dataSource {
+            self.events = dataSource.preloadEvents()
+        }
+    }
     public func getMonthInfo(for date: Date) -> (firstDay: Int, daysTotal: Int)? {
         
         var firstWeekdayOfMonthIndex    = self.calendar.component(.weekday, from: date)
@@ -124,6 +140,14 @@ extension CalendarView: UICollectionViewDataSource {
         }
         
         if let eventsForDay = self.eventsByIndexPath[indexPath] {
+            if !self.preloaded {
+                dayCell.isSelected = true
+                self.preloaded = true
+                if let d = dateFromIndexPath(indexPath), let delegate = delegate {
+                    let eventsForDaySelected = eventsByIndexPath[indexPath] ?? []
+                    delegate.calendar(self, didSelectDate: d, withEvents: eventsForDaySelected)
+                }
+            }
             dayCell.eventsCount = eventsForDay.count
             dayCell.hasEvent = eventsForDay.count > 0
         } else {

@@ -47,6 +47,7 @@ public struct CalendarEvent {
 public protocol CalendarViewDataSource {
     func startDate() -> Date
     func endDate() -> Date
+    func preloadEvents() -> Array<CalendarEvent>
 }
 
 extension CalendarViewDataSource {
@@ -71,7 +72,7 @@ public protocol CalendarViewDelegate {
 
 extension CalendarViewDelegate {
     func calendar(_ calendar : CalendarView, canSelectDate date : Date) -> Bool { return true }
-    func calendar(_ calendar : CalendarView, didDeselectDate date : Date) -> Void { return }
+    func calendar(_ calendar : CalendarView, didScrollToMonthh date : Date) -> Void { return }
     func calendar(_ calendar : CalendarView, didLongPressDate date : Date) -> Void { return }
 }
 
@@ -95,12 +96,12 @@ public class CalendarView: UIView {
     
     internal var todayIndexPath: IndexPath?
 
-    internal(set) var selectedIndexPaths    = [IndexPath]()
-    internal(set) var selectedDates         = [Date]()
+    var selectedIndexPaths    = [IndexPath]()
+    var selectedDates         = [Date]()
     
     internal var monthInfoForSection = [Int:(firstDay: Int, daysTotal: Int)]()
     internal var eventsByIndexPath = [IndexPath: [CalendarEvent]]()
-    
+    internal var preloaded : Bool = false
     public var events: [CalendarEvent] = [] {
         didSet {
             self.eventsByIndexPath.removeAll()
@@ -124,7 +125,7 @@ public class CalendarView: UIView {
     // MARK: - public
     
     public var displayDate: Date?
-    public var multipleSelectionEnable = true
+    public var multipleSelectionEnable = false
     public var marksWeekends = true
     
     public var delegate: CalendarViewDelegate?

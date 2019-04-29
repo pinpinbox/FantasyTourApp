@@ -12,7 +12,7 @@ import RxDataSources
 class TourListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var listView : UICollectionView?
-    @IBOutlet weak var countItem : UINavigationItem?
+    @IBOutlet weak var loadngView : UIActivityIndicatorView?
     
     var viewModel = TourListViewModel(.mostpopular)
     let disposeBag = DisposeBag()
@@ -60,6 +60,10 @@ class TourListViewController: UIViewController, UICollectionViewDelegate, UIColl
                 .drive(listView.rx.items(cellIdentifier: "TourItemCell",
                                          cellType: TourItemCell.self)
                 ){(_, element, cell) in
+                    if let l = self.listView, let ld = self.loadngView, l.isHidden {
+                        l.isHidden = false
+                        ld.isHidden = true
+                    }
                     cell.viewModel.updateTour(element)
                     cell.viewModel.phoneBtnPressedBlock = {
                         DispatchQueue.main.async {                                                
@@ -67,12 +71,13 @@ class TourListViewController: UIViewController, UICollectionViewDelegate, UIColl
                             self.present(p, animated: true, completion: nil)
                         }
                     }
-                    cell.viewModel.tourDatesBtnBlock = {(dates) in
+                    cell.viewModel.tourDatesBtnBlock = {(tour_id) in
                         DispatchQueue.main.async {
                             let storyboard = UIStoryboard(name: "Main", bundle: nil)
                             
                             if let fv  = storyboard.instantiateViewController(withIdentifier: "TourDatesCalendarViewController") as? TourDatesCalendarViewController {
-                                fv.dates = dates
+                                //fv.dates = dates
+                                fv.viewModel.tour_id = tour_id
                                 self.present(fv, animated: true, completion: nil)
                             }
                         }
