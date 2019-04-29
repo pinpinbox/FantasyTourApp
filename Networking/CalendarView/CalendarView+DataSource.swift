@@ -141,11 +141,12 @@ extension CalendarView: UICollectionViewDataSource {
         
         if let eventsForDay = self.eventsByIndexPath[indexPath] {
             if !self.preloaded {
+                self.selectedIndexPaths.append(indexPath)
                 dayCell.isSelected = true
                 self.preloaded = true
-                if let d = dateFromIndexPath(indexPath), let delegate = delegate {
-                    let eventsForDaySelected = eventsByIndexPath[indexPath] ?? []
-                    delegate.calendar(self, didSelectDate: d, withEvents: eventsForDaySelected)
+                
+                if let d = dateFromIndexPath(indexPath), let delegate = delegate {                    
+                    delegate.calendar(self, didSelectDate: d, withEvents: eventsForDay)
                 }
             }
             dayCell.eventsCount = eventsForDay.count

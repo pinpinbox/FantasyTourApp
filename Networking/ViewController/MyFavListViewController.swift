@@ -90,6 +90,7 @@ class MyFavListViewController: UIViewController, UICollectionViewDelegate, UICol
                             
                             if let fv  = storyboard.instantiateViewController(withIdentifier: "TourDatesCalendarViewController") as? TourDatesCalendarViewController {
                                 //fv.dates = dates
+                                fv.viewModel.tour_id = tour_id
                                 self.present(fv, animated: true, completion: nil)
                             }
                         }

@@ -123,7 +123,7 @@ class TourDatesCalendarViewModel: CalendarViewDataSource, CalendarViewDelegate {
                     self.dateDetail.accept(detail.hide_price_title)
                 } else {
                     if let ss = self.currencyFormatter.string(from: NSNumber(value: detail.price)) {
-                        self.dateDetail.accept("NTD\(ss)")
+                        self.dateDetail.accept("價格：NTD\(ss)")
                     } else {
                         self.dateDetail.accept("")
                     }
