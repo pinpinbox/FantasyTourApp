@@ -3,7 +3,7 @@
 //  FantasyTourApp
 //
 //  Created by Antelis on 2019/4/26.
-//  Copyright © 2019 Scott Gardner. All rights reserved.
+//  Copyright © 2019 . All rights reserved.
 //
 
 import UIKit
@@ -35,7 +35,7 @@ class FavouriteButton : UIView {
         let v = UIView(frame: fillView.frame)
         v.backgroundColor = UIColor.orange
         self.fillView.frame = self.bounds
-        self.fillView.tintColor = colorTables[colorTables.count-2]
+        self.fillView.tintColor = color1
         v.frame = CGRect(x: 0, y: self.bounds.height, width:self.bounds.width , height: 0)
         fillView.mask = v
         

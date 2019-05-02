@@ -3,7 +3,7 @@
 //  FantasyTourApp
 //
 //  Created by Antelis on 2019/4/26.
-//  Copyright © 2019 Scott Gardner. All rights reserved.
+//  Copyright © 2019 . All rights reserved.
 //
 
 import UIKit
@@ -15,6 +15,8 @@ class TourDatesCalendarViewController: UIViewController {
     @IBOutlet weak var calendar : CalendarView?
     @IBOutlet weak var shadow : UIView?
     @IBOutlet weak var detailLabel : UILabel?
+    @IBOutlet weak var titleLabel : UILabel?
+    @IBOutlet weak var calHeight : NSLayoutConstraint?
 
     private let disposeBag = DisposeBag()
 
@@ -43,16 +45,26 @@ class TourDatesCalendarViewController: UIViewController {
     
     private func bind() {
         viewModel.dateList.asObservable().subscribe(onNext: { (list) in
-            if let calendar = self.calendar, list.count > 0{
+            if let calendar = self.calendar, list.count > 0,
+                let h = self.calHeight, let detail = self.detailLabel, let t = self.titleLabel {
                 
                 calendar.calendar.timeZone = TimeZone.current
                 
                 calendar.dataSource = self.viewModel
                 calendar.delegate = self.viewModel
                 DispatchQueue.main.async {
+                    t.isHidden = false
+                    detail.text = ""
+                    h.constant = 360
                     calendar.reloadData()
                 }
                 
+            } else if let h = self.calHeight, let detail = self.detailLabel, let t = self.titleLabel {
+                h.constant = 0
+                DispatchQueue.main.async {
+                    t.isHidden = true
+                    detail.text = "未搜尋到其他出發日期"
+                }
             }
         }).disposed(by: disposeBag)
         
@@ -135,6 +147,7 @@ class TourDatesCalendarViewController: UIViewController {
         backgroundview.addGestureRecognizer(tap)
         
         if let shadow = self.shadow {
+            shadow.backgroundColor = color0
             shadow.layer.shadowOffset = CGSize(width:2, height:1)
             shadow.layer.shadowColor = UIColor.black.cgColor
             shadow.layer.shadowRadius = 8

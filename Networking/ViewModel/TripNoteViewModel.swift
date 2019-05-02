@@ -3,7 +3,7 @@
 //  Networking
 //
 //  Created by Antelis on 2019/4/24.
-//  Copyright © 2019 Scott Gardner. All rights reserved.
+//  Copyright © 2019 . All rights reserved.
 //
 
 import Foundation

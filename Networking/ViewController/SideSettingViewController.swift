@@ -9,7 +9,8 @@
 import UIKit
 
 var drawerOffsetRatio : CGFloat = 0.55
-
+let color0 = UIColor(red: 252/256.0, green: 203/256.0, blue: 144/256.0, alpha: 1.0)
+let color1 = UIColor(red: 255/256.0, green: 209/256.0, blue: 255/256.0, alpha: 1.0)
 class SideSettingViewController: UIViewController, DrawerVCProtocol {
     @IBOutlet weak var mainVCContainer : UIView?
     @IBOutlet weak var drawerView : UIView?
@@ -49,6 +50,15 @@ class SideSettingViewController: UIViewController, DrawerVCProtocol {
         if let drawerView = self.drawerView  {
             drawerView.translatesAutoresizingMaskIntoConstraints = false
         }
+        
+        
+        let gradient = CAGradientLayer()
+        gradient.colors = [color0.cgColor, color1.cgColor]
+        gradient.startPoint = CGPoint(x: 0.3, y: 0.6)
+        gradient.endPoint = CGPoint(x: 0.4, y: 0.8)
+        gradient.frame.size = self.view.frame.size
+        gradient.frame.origin = CGPoint.zero
+        self.view.layer.insertSublayer(gradient, at: 0)
     }
     
     

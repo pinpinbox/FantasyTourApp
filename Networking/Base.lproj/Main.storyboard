@@ -210,9 +210,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="0KR-Ot-0Lb">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                            </imageView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h4g-1T-Eed" userLabel="ListView">
                                 <rect key="frame" x="-200" y="108" width="200" height="754"/>
                                 <subviews>
@@ -274,11 +271,7 @@
                         <constraints>
                             <constraint firstItem="nYc-Dc-m7f" firstAttribute="leading" secondItem="q12-i4-KMD" secondAttribute="leading" id="Eid-uI-2ip"/>
                             <constraint firstItem="nYc-Dc-m7f" firstAttribute="bottom" secondItem="q12-i4-KMD" secondAttribute="bottom" id="I6F-tJ-HgA"/>
-                            <constraint firstItem="0KR-Ot-0Lb" firstAttribute="top" secondItem="q12-i4-KMD" secondAttribute="top" id="IyD-9I-TPQ"/>
-                            <constraint firstItem="0KR-Ot-0Lb" firstAttribute="leading" secondItem="q12-i4-KMD" secondAttribute="leading" id="MCf-yX-Hov"/>
                             <constraint firstItem="nYc-Dc-m7f" firstAttribute="top" secondItem="q12-i4-KMD" secondAttribute="top" id="Ml3-LV-RK5"/>
-                            <constraint firstItem="0KR-Ot-0Lb" firstAttribute="bottom" secondItem="q12-i4-KMD" secondAttribute="bottom" id="eVD-rA-MqR"/>
-                            <constraint firstItem="0KR-Ot-0Lb" firstAttribute="trailing" secondItem="q12-i4-KMD" secondAttribute="trailing" id="g9c-X0-65p"/>
                             <constraint firstItem="h4g-1T-Eed" firstAttribute="trailing" secondItem="nYc-Dc-m7f" secondAttribute="leading" id="ipT-0m-Zat"/>
                             <constraint firstItem="h4g-1T-Eed" firstAttribute="top" secondItem="vE4-kb-mKH" secondAttribute="top" constant="64" id="jI8-J0-WKj"/>
                             <constraint firstItem="nYc-Dc-m7f" firstAttribute="trailing" secondItem="q12-i4-KMD" secondAttribute="trailing" id="uom-Yv-Fb0"/>
@@ -336,7 +329,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.99215686270000003" green="0.80784313730000001" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.9882352941176471" green="0.79607843137254897" blue="0.56470588235294117" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="V1p-Yd-CvB" secondAttribute="trailing" id="6dT-Aj-f3x"/>
                                     <constraint firstItem="V1p-Yd-CvB" firstAttribute="top" secondItem="p7B-nn-Auv" secondAttribute="top" id="YFS-vF-z9S"/>
@@ -390,9 +383,11 @@
                         <viewLayoutGuide key="safeArea" id="feT-2K-g58"/>
                     </view>
                     <connections>
+                        <outlet property="calHeight" destination="Fdc-SQ-gzC" id="Og5-D1-8pr"/>
                         <outlet property="calendar" destination="Klo-dc-Ky0" id="HwW-kJ-eIO"/>
                         <outlet property="detailLabel" destination="fnO-G1-Jtd" id="Hey-lT-3qa"/>
                         <outlet property="shadow" destination="p7B-nn-Auv" id="E1T-tw-SEs"/>
+                        <outlet property="titleLabel" destination="V1p-Yd-CvB" id="I4K-bB-kE2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b0l-hK-6Jf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1152,7 +1147,6 @@
     </scenes>
     <resources>
         <image name="airplane" width="64" height="64"/>
-        <image name="background" width="700.5" height="1015.5"/>
         <image name="calendar" width="64" height="64"/>
         <image name="call" width="64" height="64"/>
         <image name="extra" width="32" height="32"/>
