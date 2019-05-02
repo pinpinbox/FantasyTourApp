@@ -96,7 +96,7 @@ class FlightInfoCell: UICollectionViewCell {
         code.textColor = UIColor.white
         code.font = UIFont.boldSystemFont(ofSize: 14)
         a.isHidden = true
-        base.backgroundColor = colorTables.last//errColor
+        base.backgroundColor = invalidColor//colorTables.last//errColor
         code.text = message
         
     }
@@ -106,7 +106,7 @@ class FlightInfoCell: UICollectionViewCell {
         code.textColor = UIColor.white
         code.font = UIFont.boldSystemFont(ofSize: 14)
         a.isHidden = true
-        base.backgroundColor = colorTables.last//errColor
+        base.backgroundColor = invalidColor//colorTables.last//errColor
         code.text = "航班安排中，敬請期待"
         
     }

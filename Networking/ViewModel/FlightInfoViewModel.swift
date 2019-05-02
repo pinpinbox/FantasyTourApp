@@ -33,9 +33,9 @@ class FlightInfoCellViewModel : NSObject {
         let airline =  flight.name.trimmingCharacters(in : .whitespaces)
         codeName.accept(airline+" "+flight.number)
         if flight.voyage == "go" {
-            backgroundColor.accept(colorTables[0])//depColor)
+            backgroundColor.accept(color0)//Tables[0])//depColor)
         } else {
-            backgroundColor.accept(colorTables[1])//arrColor)
+            backgroundColor.accept(color1)//Tables[1])//arrColor)
         }
         
         weaveDeparture(flight)
@@ -45,9 +45,9 @@ class FlightInfoCellViewModel : NSObject {
         let airline =  flight.name.trimmingCharacters(in : .whitespaces)
         codeName.accept(airline+" "+flight.number)
         if flight.voyage == "go" {
-            backgroundColor.accept(colorTables[0])//depColor)
+            backgroundColor.accept(color0)//Tables[0])//depColor)
         } else {
-            backgroundColor.accept(colorTables[1])//arrColor)
+            backgroundColor.accept(color1)//Tables[1])//arrColor)
         }
     }
     

@@ -65,6 +65,8 @@ internal class DetailHeaderView : UIView {
         gradient.locations = [0.5, 0.9]
         gradient.frame = CGRect(x: 0, y: 0, width: imageView.frame.width, height: imageView.frame.height)
         imageView.layer.mask = gradient
+        
+        self.priceLabel.textColor = color1
     }
     
     required init?(coder aDecoder: NSCoder) {

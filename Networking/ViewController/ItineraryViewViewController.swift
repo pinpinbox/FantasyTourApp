@@ -13,7 +13,7 @@ import WebKit
 
 private let reuseIdentifierCell = "ItineraryCell"
 private let reuseHeaderIdentitfier = "ItineraryHeader"
-let dayColor = UIColor(red: 253.0/256.0 , green:206.0/256.0 , blue: 104.0/256.0, alpha: 1.0)
+
 
 class iHeaderView: UICollectionReusableView {
     @IBOutlet weak var date : UILabel?
@@ -37,7 +37,7 @@ class iHeaderView: UICollectionReusableView {
                 d.text = newValue
                 d.layer.cornerRadius = w/2
                 d.clipsToBounds = true
-                d.backgroundColor = dayColor
+                d.backgroundColor = color0
             }
         }
     }
@@ -169,8 +169,11 @@ class ItineraryViewController: UIViewController,UICollectionViewDelegate, UIColl
         
         if let h = header as? iHeaderView, let d = h.date {
             h.index = indexPath.section
-            let c = colorTables[h.index%5]
-            d.backgroundColor = c
+            if h.index%2 == 0 {
+                d.backgroundColor = color0
+            } else {
+                d.backgroundColor = color1
+            }
             
         }
         return header

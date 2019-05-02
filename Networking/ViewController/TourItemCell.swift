@@ -106,9 +106,6 @@ class TourItemCell: UICollectionViewCell {
             shadowView.layer.shadowRadius = 3
             shadowView.layer.shadowOpacity = 0.3
         }
-        //        if let f = fav {
-        //            f.filledMask = UIImageView.init(image: UIImage.init(named: "heart_set"))
-        //        }
         
         bind()
         
@@ -126,7 +123,7 @@ class TourItemCell: UICollectionViewCell {
     private func bind() {
         guard let t = tourName, let ds = datesList, let re = region, let pr = price, let cover = self.imageView, let f = fav else { return }
         
-        //phone.addTarget(self, action: #selector(self.phoneBtnPressed(_:)), for: .touchUpInside)
+        pr.textColor = color1
         
         viewModel.tourTitle
             .asObservable()

@@ -9,17 +9,10 @@
 import Foundation
 import UIKit
 
-var colorTables = [
-UIColor(red: 138.0/256.0, green: 184.0/256.0, blue: 48.0/256.0, alpha: 1.0),
-UIColor(red: 216.0/256.0, green: 222.0/256.0, blue: 164.0/256.0, alpha: 1.0),
-UIColor(red: 253.0/256.0, green: 206.0/256.0, blue: 104.0/256.0, alpha: 1.0),
-UIColor(red: 238.0/256.0, green: 150.0/256.0, blue: 5.0/256.0, alpha: 1.0),
-UIColor(red: 250.0/256.0, green: 146.0/256.0, blue: 166.0/256.0, alpha: 1.0),
-//UIColor(red: 139.0/256.0, green: 249.0/256.0, blue: 251.0/256.0, alpha: 1.0),
-//UIColor(red: 249.0/256.0, green: 189.0/256.0, blue: 48.0/256.0, alpha: 1.0),
-//UIColor(red: 251.0/256.0, green: 135.0/256.0, blue: 105.0/256.0, alpha: 1.0),
-//UIColor(red: 236.0/256.0, green: 222.0/256.0, blue: 196.0/256.0, alpha: 1.0),
-UIColor(red: 224.0/256.0, green: 230.0/256.0, blue: 230.0/256.0, alpha: 1.0)]
+let color0 = UIColor(red: 238/256.0, green: 150/256.0, blue: 5/256.0, alpha: 1.0)
+let color1 = UIColor(red: 255.0/256.0, green: 105.0/256.0, blue: 135.0/256.0, alpha: 1.0)
+let color2 = UIColor(red: 253/256.0, green: 206/256.0, blue: 104/256.0, alpha: 1.0)
+let invalidColor = UIColor(red: 112.0/256.0, green: 115.0/256.0, blue: 115.0/256.0, alpha: 1.0)
 
 extension String {
     static let simpleDateformat = DateFormatter()
