@@ -155,7 +155,8 @@ protocol InfoProtocol {
 class ItineraryViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, InfoProtocol {
 
     @IBOutlet weak var itineraryList: UICollectionView?
-    
+    @IBOutlet weak var loadingView : UIActivityIndicatorView?
+    @IBOutlet weak var hint : UILabel?
     
     let viewModel = ItineraryViewModel()
     let disposeBag = DisposeBag()
@@ -198,7 +199,7 @@ class ItineraryViewController: UIViewController,UICollectionViewDelegate, UIColl
     
     
     private func bind() {
-
+        
         if let i = itineraryList {
             
             viewModel.ItineraryCells
@@ -206,6 +207,25 @@ class ItineraryViewController: UIViewController,UICollectionViewDelegate, UIColl
                 .bind(to: i.rx.items(dataSource: dataSource))
                 .disposed(by: disposeBag)
             
+            viewModel.ItineraryCells.asObservable().bind { (list) in
+                DispatchQueue.main.async {
+                    if list.count > 0  {
+                        if i.isHidden, let l = self.loadingView {
+                            l.isHidden = true
+                        }
+                        i.isHidden = false
+                    } else {
+                        if let h = self.hint, let l = self.loadingView {
+                            l.isHidden = true
+                            h.isHidden = false
+                            h.clipsToBounds = true
+                            h.layer.cornerRadius = 8
+                            h.backgroundColor = color0
+                            
+                        }
+                    }
+                }
+            }.disposed(by: disposeBag)
         }
         
     }

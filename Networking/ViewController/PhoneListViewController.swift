@@ -61,6 +61,7 @@ internal class PhoneCell : UICollectionViewCell {
 class PhoneListViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     var listView : UICollectionView?
+    var webView : WKWebView?
     
     public init() {
         super.init(nibName: nil, bundle: nil)
@@ -126,6 +127,7 @@ class PhoneListViewController: UIViewController, UICollectionViewDelegateFlowLay
         self.dismiss(animated: true, completion: nil)
     }
     private func setupPhoneList() {
+        
         let layout = UICollectionViewFlowLayout.init()
         
         self.listView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)//UICollectionView(frame: self.view.frame)
@@ -197,6 +199,9 @@ class PhoneListViewController: UIViewController, UICollectionViewDelegateFlowLay
         return UIEdgeInsets(top: 20, left: 10, bottom: 20, right: 10)
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if self.webView != nil {
+            return 0        
+        }
         return locations.count+1
     }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -213,7 +218,7 @@ class PhoneListViewController: UIViewController, UICollectionViewDelegateFlowLay
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.item == 0 { return }
-        let tel = locations[indexPath.item].tel
+        let tel = locations[indexPath.item-1].tel
         let ntel = tel.replacingOccurrences(of: "-", with: "")
         //print(ntel)
         if let url = URL(string: "tel://"+ntel) {
@@ -224,11 +229,13 @@ class PhoneListViewController: UIViewController, UICollectionViewDelegateFlowLay
     
     func showWebView(_ webview : WKWebView) {
         
+        self.webView = webview
         if #available(iOS 11.0, *) {
             webview.frame = view.safeAreaLayoutGuide.layoutFrame
         } else {
             webview.frame = view.frame
         }
+        
         webview.layer.cornerRadius = 8
         webview.translatesAutoresizingMaskIntoConstraints = false
         let top = NSLayoutConstraint(item: webview,

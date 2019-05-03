@@ -134,6 +134,10 @@ extension CalendarView: UICollectionViewDataSource {
         
         dayCell.isSelected = selectedIndexPaths.contains(indexPath)
         
+        dayCell.tapBlock = {
+            collectionView.selectItem(at: indexPath, animated: false, scrollPosition:UICollectionView.ScrollPosition())
+        }
+        
         if self.marksWeekends {
             let we = indexPath.item % 7
             dayCell.isWeekend = we == 5 || we == 6

@@ -192,6 +192,7 @@ public class CalendarView: UIView {
         self.addSubview(self.collectionView)
         
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(CalendarView.handleLongPress))
+        longPress.cancelsTouchesInView = false
         self.collectionView.addGestureRecognizer(longPress)
         
     }

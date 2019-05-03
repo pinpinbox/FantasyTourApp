@@ -195,7 +195,7 @@
                     <navigationItem key="navigationItem" id="rFd-bx-cxi"/>
                     <connections>
                         <outlet property="listView" destination="Oag-gB-PoB" id="ycu-Pp-Vxk"/>
-                        <outlet property="loadngView" destination="cLF-zG-Lu7" id="riX-Zr-DHL"/>
+                        <outlet property="loadingView" destination="cLF-zG-Lu7" id="9tf-Kt-t5p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oqI-a7-YBP" sceneMemberID="firstResponder"/>
@@ -813,7 +813,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fjn-Mu-ynm">
+                            <activityIndicatorView opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="cGv-Zy-Izl">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="無法取得行程詳情，請稍後再試" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rHJ-Im-sNX">
+                                <rect key="frame" x="87" y="424" width="240" height="48"/>
+                                <color key="backgroundColor" red="0.99215686270000003" green="0.80784313730000001" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="9EH-sz-hz0"/>
+                                    <constraint firstAttribute="height" constant="48" id="IPx-TK-nyS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fjn-Mu-ynm">
                                 <rect key="frame" x="0.0" y="84" width="414" height="778"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="3SI-k0-NEh">
@@ -976,15 +995,21 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="rHJ-Im-sNX" firstAttribute="centerY" secondItem="I1m-k6-r4K" secondAttribute="centerY" id="3je-g3-hah"/>
+                            <constraint firstItem="rHJ-Im-sNX" firstAttribute="centerX" secondItem="I1m-k6-r4K" secondAttribute="centerX" id="BCj-LE-Yke"/>
+                            <constraint firstItem="cGv-Zy-Izl" firstAttribute="centerX" secondItem="I1m-k6-r4K" secondAttribute="centerX" id="IAD-XF-daS"/>
                             <constraint firstItem="fjn-Mu-ynm" firstAttribute="leading" secondItem="eoN-gY-pUN" secondAttribute="leading" id="Ntn-Yt-Y3g"/>
                             <constraint firstItem="fjn-Mu-ynm" firstAttribute="trailing" secondItem="eoN-gY-pUN" secondAttribute="trailing" id="WNJ-V4-302"/>
+                            <constraint firstItem="cGv-Zy-Izl" firstAttribute="centerY" secondItem="I1m-k6-r4K" secondAttribute="centerY" id="kfO-4a-KZ2"/>
                             <constraint firstItem="fjn-Mu-ynm" firstAttribute="top" secondItem="eoN-gY-pUN" secondAttribute="top" constant="40" id="nEz-mA-fHi"/>
                             <constraint firstItem="fjn-Mu-ynm" firstAttribute="bottom" secondItem="eoN-gY-pUN" secondAttribute="bottom" id="q8J-g5-O4i"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eoN-gY-pUN"/>
                     </view>
                     <connections>
+                        <outlet property="hint" destination="rHJ-Im-sNX" id="u1s-DN-Ti8"/>
                         <outlet property="itineraryList" destination="fjn-Mu-ynm" id="7JO-hG-GHO"/>
+                        <outlet property="loadingView" destination="cGv-Zy-Izl" id="yAW-4E-pVh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4jK-iJ-wHx" userLabel="First Responder" sceneMemberID="firstResponder"/>

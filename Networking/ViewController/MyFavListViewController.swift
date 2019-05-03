@@ -64,7 +64,9 @@ class MyFavListViewController: UIViewController, UICollectionViewDelegate, UICol
 //            
             
             viewModel.guideList.asObservable().bind { (guides) in
-                list.isHidden = (guides.count < 1)
+                DispatchQueue.main.async {
+                    list.isHidden = (guides.count < 1)
+                }
             }.disposed(by: disposeBag)
             
             viewModel.guideList.asDriver()

@@ -147,9 +147,7 @@ class ItineraryViewModel : TourDetailViewModel {
                     i = i+1
                 })
                 self.cells.accept(va)
-                
             }
-            
             
         }, onError: { error in
             print("getdailylist Error :: \(error.localizedDescription)")

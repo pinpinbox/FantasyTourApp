@@ -27,6 +27,8 @@ import UIKit
 
 open class CalendarDayCell: UICollectionViewCell {
     
+    var tapBlock : (() -> Void)?
+    
     override open var description: String {
         let dayString = self.textLabel.text ?? " "
         return "<DayCell (text:\"\(dayString)\")>"
@@ -110,9 +112,15 @@ open class CalendarDayCell: UICollectionViewCell {
         
         self.addSubview(self.dotsView)
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(CalendarDayCell.cellTapped(_:)))
+        self.addGestureRecognizer(tap)
     }
     
-    
+    @objc func cellTapped(_ tap : UITapGestureRecognizer) {
+        if let p = tapBlock {
+            p()
+        }
+    }
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }

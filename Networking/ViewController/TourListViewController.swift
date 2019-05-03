@@ -12,7 +12,7 @@ import RxDataSources
 class TourListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var listView : UICollectionView?
-    @IBOutlet weak var loadngView : UIActivityIndicatorView?
+    @IBOutlet weak var loadingView : UIActivityIndicatorView?
     
     var viewModel = TourListViewModel(.mostpopular)
     let disposeBag = DisposeBag()
@@ -60,9 +60,11 @@ class TourListViewController: UIViewController, UICollectionViewDelegate, UIColl
                 .drive(listView.rx.items(cellIdentifier: "TourItemCell",
                                          cellType: TourItemCell.self)
                 ){(_, element, cell) in
-                    if let l = self.listView, let ld = self.loadngView, l.isHidden {
-                        l.isHidden = false
-                        ld.isHidden = true
+                    DispatchQueue.main.async {
+                        if let l = self.listView, let ld = self.loadingView, l.isHidden {
+                            l.isHidden = false
+                            ld.isHidden = true
+                        }
                     }
                     cell.viewModel.updateTour(element)
                     cell.viewModel.phoneBtnPressedBlock = {
