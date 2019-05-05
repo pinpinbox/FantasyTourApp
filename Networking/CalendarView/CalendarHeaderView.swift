@@ -64,7 +64,22 @@ open class CalendarHeaderView: UIView {
         return v
         
     }()
-    
+    lazy var prevButton : UIButton = {
+        let b = UIButton(type: .system)
+        b.setTitle("<<", for: .normal)
+        b.frame = CGRect(x: 16 , y: 5, width: 80, height: 32)
+        b.setTitleColor(UIColor.white, for: .normal)
+        self.addSubview(b)
+        return b
+    }()
+    lazy var nextButton : UIButton = {
+        let b = UIButton(type: .system)
+        b.setTitle(">>", for: .normal)
+        b.frame = CGRect(x: self.frame.width - 96, y: 5, width: 80, height: 32)
+        b.setTitleColor(UIColor.white, for: .normal)
+        self.addSubview(b)
+        return b
+    }()
     override open func layoutSubviews() {
         
         super.layoutSubviews()
@@ -72,7 +87,8 @@ open class CalendarHeaderView: UIView {
         var frm = self.bounds
         frm.origin.y += 5.0
         frm.size.height = self.bounds.size.height / 2.0 - 5.0
-        
+        self.prevButton.frame.size = CGSize(width: 80, height: frm.height)
+        self.nextButton.frame.size = CGSize(width: 80, height: frm.height)
         self.monthLabel.frame = frm
         
         var labelFrame = CGRect(

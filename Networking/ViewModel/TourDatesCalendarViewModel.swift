@@ -86,14 +86,14 @@ class TourDatesCalendarViewModel: CalendarViewDataSource, CalendarViewDelegate {
     
     func startDate() -> Date {
         if let d = dateList.value.first, let date = d.date.simpleDate() {
-            return date
+            return date.firstDayOfMonth()
         }
         return Date()
     }
     
     func endDate() -> Date {
         if let d = dateList.value.last, let date = d.date.simpleDate() {
-            return date
+            return date.lastDayOfMonth()
         }
         return Date()
     }

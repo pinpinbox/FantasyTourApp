@@ -82,7 +82,6 @@ public class CalendarView: UIView {
     
     var headerView: CalendarHeaderView!
     var collectionView: UICollectionView!
-    
     public lazy var calendar : Calendar = {
         var gregorian = Calendar(identifier: .gregorian)
         gregorian.timeZone = TimeZone(abbreviation: "UTC")!
@@ -101,7 +100,7 @@ public class CalendarView: UIView {
     
     internal var monthInfoForSection = [Int:(firstDay: Int, daysTotal: Int)]()
     internal var eventsByIndexPath = [IndexPath: [CalendarEvent]]()
-    internal var preloaded : Bool = false
+    var preloaded : Bool = false
     public var events: [CalendarEvent] = [] {
         didSet {
             self.eventsByIndexPath.removeAll()
@@ -191,24 +190,32 @@ public class CalendarView: UIView {
         self.collectionView.semanticContentAttribute = .forceLeftToRight // forces western style language orientation
         self.addSubview(self.collectionView)
         
-        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(CalendarView.handleLongPress))
-        longPress.cancelsTouchesInView = false
-        self.collectionView.addGestureRecognizer(longPress)
-        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(CalendarView.handleTap))
+        tap.cancelsTouchesInView = true
+        self.collectionView.addGestureRecognizer(tap)
+    
     }
     
-    
-    @objc func handleLongPress(gesture: UILongPressGestureRecognizer) {
+    @objc func headerPrevBtnPressed(_ sender:Any?) {
+        self.goToPreviousMonth()
+    }
+    @objc func headerNextBtnPressed(_ sender:Any?) {
+        self.goToNextMonth()
+//        if self.headerView.prevButton.isHidden {
+//            self.headerView.prevButton.isHidden = false
+//        }
+    }
+    @objc func handleTap(gesture: UILongPressGestureRecognizer) {
         
-        #if swift(>=4.2)
-        guard gesture.state == UIGestureRecognizer.State.began else {
-            return
-        }
-        #else
-        guard gesture.state == UIGestureRecognizerState.began else {
-            return
-        }
-        #endif
+//        #if swift(>=4.2)
+//        guard gesture.state == UIGestureRecognizer.State.began else {
+//            return
+//        }
+//        #else
+//        guard gesture.state == UIGestureRecognizerState.began else {
+//            return
+//        }
+//        #endif
         
         let point = gesture.location(in: collectionView)
         
@@ -217,8 +224,10 @@ public class CalendarView: UIView {
             let date = self.dateFromIndexPath(indexPath) else {
             return
         }
-        
-        self.delegate?.calendar(self, didLongPressDate: date)
+        self.selectDate(date)
+//        self.collectionView.selectItem(at: indexPath, animated: false, scrollPosition: UICollectionView.ScrollPosition.centeredHorizontally)
+//        self.delegate?.calendar(self, didSelectDate: date, withEvents: [])
+        //self.delegate?.calendar(self, didLongPressDate: date)
     }
     
     override open func layoutSubviews() {
@@ -231,7 +240,7 @@ public class CalendarView: UIView {
             width: self.frame.size.width,
             height: CalendarView.Style.headerHeight
         )
-        
+        self.collectionView.isPagingEnabled = true
         self.collectionView.frame = CGRect(
             x: 0.0,
             y: CalendarView.Style.headerHeight,
@@ -326,6 +335,7 @@ extension CalendarView {
      function: - reload all components in collection view
      */
     public func reloadData() {
+        
         self.collectionView.reloadData()
     }
     
@@ -355,7 +365,7 @@ extension CalendarView {
         #if swift(>=4.2)
         self.collectionView.selectItem(at: indexPath, animated: false, scrollPosition: UICollectionView.ScrollPosition())
         #else
-            self.collectionView.selectItem(at: indexPath, animated: false, scrollPosition: UICollectionViewScrollPosition())
+            self.collectionView.selectItem(at: indexPath, animated: false, scrollPosition: UICollectionView.ScrollPosition())
         #endif
         self.collectionView(collectionView, didSelectItemAt: indexPath)
     }

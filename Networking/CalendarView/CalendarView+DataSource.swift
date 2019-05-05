@@ -75,7 +75,8 @@ extension CalendarView: UICollectionViewDataSource {
             
             self.monthInfoForSection[i] = info
         }
-        if let dataSource = self.dataSource {
+        if let dataSource = self.dataSource, !self.preloaded {
+            //self.preloaded = true
             self.events = dataSource.preloadEvents()
         }
     }
@@ -124,7 +125,7 @@ extension CalendarView: UICollectionViewDataSource {
             dayCell.isHidden = true
         }
         
-        if indexPath.section == 0 && indexPath.item == 0 {
+        if self.headerView.monthLabel.text == nil && indexPath.section == 0 && indexPath.item == 0 {
             self.scrollViewDidEndDecelerating(collectionView)
         }
         
@@ -134,9 +135,9 @@ extension CalendarView: UICollectionViewDataSource {
         
         dayCell.isSelected = selectedIndexPaths.contains(indexPath)
         
-        dayCell.tapBlock = {
-            collectionView.selectItem(at: indexPath, animated: false, scrollPosition:UICollectionView.ScrollPosition())
-        }
+//        dayCell.tapBlock = {
+//            collectionView.selectItem(at: indexPath, animated: false, scrollPosition:UICollectionView.ScrollPosition())
+//        }
         
         if self.marksWeekends {
             let we = indexPath.item % 7

@@ -61,6 +61,23 @@ extension Date {
         return Date.simpleDateformat.string(from: self)
     }
     
+    func lastDayOfMonth() -> Date {
+        let calendar = Calendar.current
+        let dayRange = calendar.range(of: .day, in: .month, for: self)
+        let dayCount = dayRange!.count
+        var comp = calendar.dateComponents([.year, .month, .day], from: self)
+        
+        comp.day = dayCount
+        
+        return calendar.date(from: comp)!
+    }
+    
+    func firstDayOfMonth() -> Date {
+        let calendar: Calendar = Calendar.current
+        var components: DateComponents = calendar.dateComponents([.year, .month, .day], from: self)
+        components.setValue(1, for: .day)
+        return calendar.date(from: components)!
+    }
 }
 extension UIScrollView {
     func isNearBottom(edgeOffset : CGFloat = 200.0) -> Bool {

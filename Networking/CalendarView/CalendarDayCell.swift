@@ -85,9 +85,11 @@ open class CalendarDayCell: UICollectionViewCell {
             if hasEvent {
                 self.dotsView.isHidden = false
                 self.textLabel.textColor = CalendarView.Style.cellTextColorDefault
+                self.bgView.backgroundColor =  CalendarView.Style.cellEventColor
             } else {
                 self.dotsView.isHidden = true
-                
+                self.bgView.backgroundColor =  CalendarView.Style.cellColorDefault
+                if self.isToday { self.bgView.backgroundColor = CalendarView.Style.cellColorToday }
             }
         }
     }
@@ -107,20 +109,11 @@ open class CalendarDayCell: UICollectionViewCell {
         
         super.init(frame: frame)
         
-        self.addSubview(self.bgView)
-        self.addSubview(self.textLabel)
+        self.contentView.addSubview(self.bgView)
         
-        self.addSubview(self.dotsView)
+        self.contentView.addSubview(self.textLabel)
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(CalendarDayCell.cellTapped(_:)))
-        self.addGestureRecognizer(tap)
-    }
-    
-    @objc func cellTapped(_ tap : UITapGestureRecognizer) {
-        if let p = tapBlock {
-            p()
-        }
-    }
+        
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -147,11 +140,12 @@ open class CalendarDayCell: UICollectionViewCell {
         self.dotsView.center                = CGPoint(x: self.textLabel.center.x, y: self.bounds.height*0.5)
         self.dotsView.layer.cornerRadius    = size * 0.5 // round it
         if isSelected {
-            self.dotsView.layer.borderWidth = 3
-            self.dotsView.layer.borderColor = UIColor.purple.cgColor
+            self.bgView.layer.borderWidth = 3
+            self.bgView.layer.borderColor = UIColor.purple.cgColor
         } else {
-            self.dotsView.layer.borderWidth = 0
+            self.bgView.layer.borderWidth = 0
         }
+        //self.dotsView.isHidden = true
         
         self.bringSubviewToFront(self.textLabel)
         switch CalendarView.Style.cellShape {

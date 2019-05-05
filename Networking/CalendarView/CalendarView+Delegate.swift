@@ -113,5 +113,11 @@ extension CalendarView: UICollectionViewDelegateFlowLayout {
         self.headerView.monthLabel.text = monthName + " " + String(year)
         
         self.displayDate = date
+        
+        self.headerView.prevButton.isHidden = (date <= self.startDateCache)
+        self.headerView.nextButton.isHidden = (date >= self.endDateCache.firstDayOfMonth())
+        self.headerView.prevButton.addTarget(self, action:#selector(CalendarView.headerPrevBtnPressed) , for: .touchUpInside)
+        
+        self.headerView.nextButton.addTarget(self, action:#selector(CalendarView.headerNextBtnPressed) , for: .touchUpInside)
     }
 }
